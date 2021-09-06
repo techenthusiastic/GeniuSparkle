@@ -1,0 +1,48 @@
+### Join Now - Step 1
+POST http://localhost/emailAuth/initRegister
+content-type: application/json
+
+{
+    "name":"Sachin Kumar",
+    "email": "sinha1abc@gmail.com",
+    "password": "HelloUser@123"
+}
+
+
+### Join Now - Step 2 - Verify using URL - Register - Join Now - On Success redirect to dashboard
+GET http://localhost/emailAuth/register/shredtest1@gmail.com/f2e47da7-74ff-4285-bc4d-3286a0fa6ecb
+
+
+### Forgot Password - Step 1
+POST http://localhost/emailAuth/forgotPswd
+content-type: application/json
+
+{
+    "email": "shredtest1@gmail.com"
+}
+
+
+### Forgot Password - Step 2 - Link Verification - On Success redirect to create password page
+GET http://localhost/emailAuth/resetpswd/shredtest1@gmail.com/b0f935c3-8e03-4f5a-b7b9-b3372a25c7e5
+
+
+### Forgot Password - Step 3 - Along with Link Verification - On Success redirect dashboard
+POST http://localhost/emailAuth/resetPswd
+content-type: application/json
+
+{
+    "email": "shredtest1@gmail.com",
+    "mailUID":"8a80e9bc-4e00-4d53-a0fe-c8f4010438fc",
+    "password": "userAa@123"
+}
+
+
+
+### Login using Email and Password
+POST http://localhost/emailAuth/login
+content-type: application/json
+
+{
+    "email": "shredtest1@gmail.com",
+    "password": "Sachin@12345"
+}

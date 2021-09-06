@@ -1,0 +1,1 @@
+Click on this link to verify your Email and create a new password for your account ((=VerificationLink=))<br>((=UnsubLink=))

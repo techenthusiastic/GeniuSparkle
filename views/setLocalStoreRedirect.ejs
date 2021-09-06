@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Wait</title>
+</head>
+
+<body>
+    <p>
+        <%- browserStore.value %>
+    </p>
+    <center>
+        <h2>Processing - you will be redirected soon</h2>
+    </center>
+    <script>
+        window.localStorage.setItem('<%- browserStore.key %>', '<%- browserStore.value %>');
+        // window.location.assign('<%- redirectURL %>');
+    </script>
+</body>
+
+</html>

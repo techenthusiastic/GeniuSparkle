@@ -1,0 +1,1 @@
+Thank you for Signing In using ((=SocialSignName=)).<br>We have been auto registered and your Account is created you can now login using email and password too<br>your Random Password is ((=RandomPassword=))<br>Reset this password with a password of your choice and Consider detroying this mail now. Delete from inbox then delete from Trash too.<br>((=UnsubLink=))
