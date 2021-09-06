@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicons -->
+	<!--<link rel="icon" type="image/x-icon" href="Images/Favicon.ico" />-->
+	<link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+	<!-- End Favicons -->
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<!-- End Google Fonts -->
+	<link rel="stylesheet" href="./styles/auth.css?v=5" />
+	<title>GeniuSparkle</title>
+</head>
+
+<body>
+	<div class="container" id="container">
+		<div class="form-container sign-up-container">
+			<form action="#">
+				<h1>Create Account</h1>
+				<div class="social-container">
+					<a href="https://www.facebook.com/v4.0/dialog/oauth?auth_type=rerequest&client_id=875669746686105&display=popup&redirect_uri=http%3A%2F%2Flocalhost%2Ffacebook%2Fauthenticate%2F&response_type=code&scope=email%2Cpublic_profile"
+						class="social"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M9.96621 13.5227V21.6941H13.6187V13.5238H16.3406V10.1437H13.6187V7.94801C13.5729 7.43695 13.7616 6.93271 14.1317 6.57734C14.5019 6.22198 15.0134 6.05395 15.5222 6.12058H17V3.24557C16.1339 3.10406 15.2585 3.02591 14.381 3.01173C13.1585 2.91938 11.9582 3.37567 11.1057 4.25683C10.2533 5.138 9.83696 6.35271 9.96972 7.57154V10.1437H7V13.5227H9.96621Z"
+								fill="#000000"></path>
+						</svg></a>
+					<a href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20profile&response_type=code&client_id=1047494589251-ka43rg6c0m8vmb0lb992gb39cu2j8ot9.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%2Fgoogle%2Flogin"
+						class="social"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M11.956 10.356V13.807H16.748C16.302 16 14.435 17.26 11.956 17.26C9.06851 17.2202 6.74862 14.8682 6.74862 11.9805C6.74862 9.09275 9.06851 6.74072 11.956 6.70098C13.1562 6.69954 14.3194 7.11605 15.246 7.87898L17.846 5.27898C14.8636 2.65705 10.508 2.31981 7.15752 4.45142C3.80707 6.58303 2.26698 10.6712 3.37821 14.4836C4.48943 18.296 7.98491 20.9164 11.956 20.914C16.423 20.914 20.485 17.665 20.485 11.98C20.4781 11.4326 20.411 10.8877 20.285 10.355L11.956 10.356Z"
+								fill="#000000"></path>
+						</svg></a>
+					<a href="#" class="social"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M9.09398 21.006C8.4652 20.9719 7.87352 20.6977 7.44098 20.24C6.92358 19.7422 6.46186 19.1897 6.06398 18.592C5.44247 17.702 4.95118 16.7279 4.60498 15.699C4.21284 14.5922 4.00639 13.4282 3.99398 12.254C3.96385 11.1019 4.24949 9.96346 4.81998 8.96202C5.23755 8.24012 5.83317 7.63728 6.54998 7.21102C7.25887 6.78659 8.0678 6.55813 8.89398 6.54902C9.5168 6.58587 10.1288 6.72823 10.704 6.97002C11.1625 7.17178 11.6452 7.31362 12.14 7.39202C12.686 7.27763 13.2195 7.11017 13.733 6.89202C14.3406 6.65474 14.984 6.52187 15.636 6.49902C15.723 6.49902 15.809 6.49902 15.892 6.50902C17.3215 6.55048 18.6511 7.25221 19.492 8.40902C18.155 9.12387 17.334 10.5303 17.369 12.046C17.3558 13.1956 17.8351 14.2959 18.686 15.069C19.0689 15.4339 19.5148 15.7262 20.002 15.932C19.902 16.232 19.787 16.522 19.665 16.814C19.3877 17.4593 19.0456 18.0748 18.644 18.651C18.2648 19.2282 17.8235 19.7621 17.328 20.243C16.8756 20.6919 16.2726 20.9567 15.636 20.986C15.0963 20.9621 14.5662 20.8355 14.074 20.613C13.5432 20.3818 12.9728 20.2551 12.394 20.24C11.7989 20.2517 11.2116 20.3777 10.664 20.611C10.191 20.8244 9.68573 20.9572 9.16898 21.004L9.09398 21.006ZM12.244 6.49902C12.169 6.49902 12.094 6.49902 12.019 6.49002C12.0032 6.37099 11.9949 6.25109 11.994 6.13102C12.0267 5.13216 12.4171 4.17826 13.094 3.44302C13.4723 3.0206 13.9309 2.67762 14.443 2.43402C14.9208 2.18802 15.4431 2.04012 15.979 1.99902C15.994 2.13002 15.994 2.25802 15.994 2.38002C15.9798 3.36317 15.6104 4.308 14.954 5.04002C14.3105 5.9028 13.3185 6.43689 12.244 6.49902Z"
+								fill="#000000"></path>
+						</svg></a>
+				</div>
+				<span>or use your email account</span>
+				<div class="sign-up-input">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+						class="signup__inputIcon">
+						<path
+							d="M12 5.9C13.16 5.9 14.1 6.84 14.1 8C14.1 9.16 13.16 10.1 12 10.1C10.84 10.1 9.9 9.16 9.9 8C9.9 6.84 10.84 5.9 12 5.9ZM12 14C14.97 14 18.1 16.36 18.1 17V18.1H5.9V17C5.9 16.36 9.03 14 12 14ZM12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4ZM12 12C9.33 12 4 14.34 4 17V20H20V17C20 14.34 14.67 12 12 12Z"
+							fill="#757575" />
+					</svg>
+					<input type="text" placeholder="Name" />
+				</div>
+				<div class="sign-up-input">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+						class="signup__inputIcon">
+						<path d="M22 4H2.01L2 20H22V4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z" fill="#757575" />
+					</svg>
+					<input type="email" placeholder="Email" />
+				</div>
+				<div class="sign-up-input">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="httwww.w3.org/2000/svg"
+						class="signup__inputIcon">
+						<path
+							d="M12.5 17C13.8063 17 14.875 16.1 14.875 15C14.875 13.9 13.8063 13 12.5 13C11.1937 13 10.125 13.9 10.125 15C10.125 16.1 11.1937 17 12.5 17ZM19.625 8H18.4375V6C18.4375 3.24 15.7775 1 12.5 1C9.2225 1 6.5625 3.24 6.5625 6V8H5.375C4.06875 8 3 8.9 3 10V20C3 21.1 4.06875 22 5.375 22H19.625C20.9313 22 22 21.1 22 20V10C22 8.9 20.9313 8 19.625 8ZM8.81875 6C8.81875 4.29 10.4694 2.9 12.5 2.9C14.5306 2.9 16.1813 4.29 16.1813 6V8H8.81875V6ZM19.625 20H5.375V10H19.625V20Z"
+							fill="#757575" />
+					</svg>
+					<input type="password" placeholder="Password" />
+				</div>
+				<small class="sign-up-terms">By creating an account, you agree to our <a href="!#">Terms and
+						Conditions</a> and <a href="!#">Privacy Policy</a></small>
+				<button id="sign-up-btn">JOIN NOW</button>
+				<p class="goto-signin" id="signIn-mobile">Already have an account? <a href="">Sign In</a></p>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form action="#">
+				<h1>Welcome Back!</h1>
+				<div class="social-container">
+					<a href="https://www.facebook.com/v4.0/dialog/oauth?auth_type=rerequest&client_id=875669746686105&display=popup&redirect_uri=http%3A%2F%2Flocalhost%2Ffacebook%2Fauthenticate%2F&response_type=code&scope=email%2Cpublic_profile"
+						class="social"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M9.96621 13.5227V21.6941H13.6187V13.5238H16.3406V10.1437H13.6187V7.94801C13.5729 7.43695 13.7616 6.93271 14.1317 6.57734C14.5019 6.22198 15.0134 6.05395 15.5222 6.12058H17V3.24557C16.1339 3.10406 15.2585 3.02591 14.381 3.01173C13.1585 2.91938 11.9582 3.37567 11.1057 4.25683C10.2533 5.138 9.83696 6.35271 9.96972 7.57154V10.1437H7V13.5227H9.96621Z"
+								fill="#000000"></path>
+						</svg></a>
+					<a href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20profile&response_type=code&client_id=1047494589251-ka43rg6c0m8vmb0lb992gb39cu2j8ot9.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%2Fgoogle%2Flogin"
+						class="social"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M11.956 10.356V13.807H16.748C16.302 16 14.435 17.26 11.956 17.26C9.06851 17.2202 6.74862 14.8682 6.74862 11.9805C6.74862 9.09275 9.06851 6.74072 11.956 6.70098C13.1562 6.69954 14.3194 7.11605 15.246 7.87898L17.846 5.27898C14.8636 2.65705 10.508 2.31981 7.15752 4.45142C3.80707 6.58303 2.26698 10.6712 3.37821 14.4836C4.48943 18.296 7.98491 20.9164 11.956 20.914C16.423 20.914 20.485 17.665 20.485 11.98C20.4781 11.4326 20.411 10.8877 20.285 10.355L11.956 10.356Z"
+								fill="#000000"></path>
+						</svg></a>
+					<a href="#" class="social"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M9.09398 21.006C8.4652 20.9719 7.87352 20.6977 7.44098 20.24C6.92358 19.7422 6.46186 19.1897 6.06398 18.592C5.44247 17.702 4.95118 16.7279 4.60498 15.699C4.21284 14.5922 4.00639 13.4282 3.99398 12.254C3.96385 11.1019 4.24949 9.96346 4.81998 8.96202C5.23755 8.24012 5.83317 7.63728 6.54998 7.21102C7.25887 6.78659 8.0678 6.55813 8.89398 6.54902C9.5168 6.58587 10.1288 6.72823 10.704 6.97002C11.1625 7.17178 11.6452 7.31362 12.14 7.39202C12.686 7.27763 13.2195 7.11017 13.733 6.89202C14.3406 6.65474 14.984 6.52187 15.636 6.49902C15.723 6.49902 15.809 6.49902 15.892 6.50902C17.3215 6.55048 18.6511 7.25221 19.492 8.40902C18.155 9.12387 17.334 10.5303 17.369 12.046C17.3558 13.1956 17.8351 14.2959 18.686 15.069C19.0689 15.4339 19.5148 15.7262 20.002 15.932C19.902 16.232 19.787 16.522 19.665 16.814C19.3877 17.4593 19.0456 18.0748 18.644 18.651C18.2648 19.2282 17.8235 19.7621 17.328 20.243C16.8756 20.6919 16.2726 20.9567 15.636 20.986C15.0963 20.9621 14.5662 20.8355 14.074 20.613C13.5432 20.3818 12.9728 20.2551 12.394 20.24C11.7989 20.2517 11.2116 20.3777 10.664 20.611C10.191 20.8244 9.68573 20.9572 9.16898 21.004L9.09398 21.006ZM12.244 6.49902C12.169 6.49902 12.094 6.49902 12.019 6.49002C12.0032 6.37099 11.9949 6.25109 11.994 6.13102C12.0267 5.13216 12.4171 4.17826 13.094 3.44302C13.4723 3.0206 13.9309 2.67762 14.443 2.43402C14.9208 2.18802 15.4431 2.04012 15.979 1.99902C15.994 2.13002 15.994 2.25802 15.994 2.38002C15.9798 3.36317 15.6104 4.308 14.954 5.04002C14.3105 5.9028 13.3185 6.43689 12.244 6.49902Z"
+								fill="#000000"></path>
+						</svg></a>
+				</div>
+				<span>or use your email account</span>
+				<div class="sign-in-input">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+						class="signup__inputIcon">
+						<path d="M22 4H2.01L2 20H22V4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z" fill="#757575" />
+					</svg>
+					<input type="email" placeholder="Email" />
+				</div>
+				<div class="sign-in-input">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="httwww.w3.org/2000/svg"
+						class="signup__inputIcon">
+						<path
+							d="M12.5 17C13.8063 17 14.875 16.1 14.875 15C14.875 13.9 13.8063 13 12.5 13C11.1937 13 10.125 13.9 10.125 15C10.125 16.1 11.1937 17 12.5 17ZM19.625 8H18.4375V6C18.4375 3.24 15.7775 1 12.5 1C9.2225 1 6.5625 3.24 6.5625 6V8H5.375C4.06875 8 3 8.9 3 10V20C3 21.1 4.06875 22 5.375 22H19.625C20.9313 22 22 21.1 22 20V10C22 8.9 20.9313 8 19.625 8ZM8.81875 6C8.81875 4.29 10.4694 2.9 12.5 2.9C14.5306 2.9 16.1813 4.29 16.1813 6V8H8.81875V6ZM19.625 20H5.375V10H19.625V20Z"
+							fill="#757575" />
+					</svg>
+					<input type="password" placeholder="Password" />
+				</div>
+				<a href="#" id="reset-password">Forgot your password?</a>
+				<button>Log In</button>
+				<p class="goto-signup" id="signUp-mobile">Don't have an account yet? <a href="">Sign Up</a></p>
+			</form>
+		</div>
+		<div class="form-container reset-password-container ">
+			<h1>Password Reset</h1>
+			<div class="reset-password-input">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+					class="signup__inputIcon">
+					<path d="M22 4H2.01L2 20H22V4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z" fill="#757575" />
+				</svg>
+				<input type="email" placeholder="Email" />
+			</div>
+			<button id="btn-reset">RESET</button>
+		</div>
+		<div class="form-container email-container ">
+			<svg width="41" height="29" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M1.82292 0C1.63556 0 1.55105 0.234517 1.69534 0.354028L20.7166 16.1085C20.7919 16.1709 20.9011 16.1697 20.975 16.1058L39.1827 0.351243C39.3228 0.230049 39.237 0 39.0518 0H1.82292ZM0 27.2919C0 27.2898 0.000852825 27.2877 0.00237498 27.2861L13.7944 13.2404C13.8765 13.1568 13.8695 13.0209 13.7793 12.9462L0.327563 1.8065C0.197186 1.69853 0 1.79126 0 1.96054V27.2919V27.2919ZM15.6266 14.4766C15.5466 14.4103 15.4292 14.4163 15.3564 14.4904L1.43852 28.6599C1.31426 28.7864 1.40388 29 1.5812 29H39.3133C39.4884 29 39.579 28.7908 39.4591 28.6631L26.1569 14.4994C26.0835 14.4212 25.9613 14.4149 25.8802 14.4852L21.501 18.2805C21.3246 18.4298 21.103 18.513 20.8733 18.5161C20.6437 18.5192 20.42 18.442 20.2397 18.2974L15.6266 14.4766ZM27.6944 12.9217C27.6084 12.9961 27.6016 13.127 27.6794 13.2098L40.6542 27.0353C40.7782 27.1674 41 27.0796 41 26.8984V1.84734C41 1.67604 40.7987 1.58401 40.6691 1.69609L27.6944 12.9217Z"
+					fill="#077EFF" />
+			</svg>
+			<h2>Verify Your Email</h2>
+			<p>We sent you an activation link. Please be sure to check your spam folder too</p>
+		</div>
+
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Hello, Genius!</h1>
+					<p>Already have an account? Then click the button below to log in.</p>
+					<button class="ghost" id="signIn">Log In</button>
+					<p class="license">The design is <a href="./license-signin-and-signup.html">licensed</a> by <a
+							href="https://codepen.io/FlorinPop17/pen/vPKWjd" target="_blank">Florin Pop</a></p>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, Genius!</h1>
+					<p>Don't have an account yet? Then click the button below to create an account.</p>
+					<button class="ghost" id="signUp">JOIN NOW</button>
+					<p class="license">The design is <a href="./license-signin-and-signup.html">licensed</a> by <a
+							href="https://codepen.io/FlorinPop17/pen/vPKWjd" target="_blank">Florin Pop</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="./js/auth.js?v=5"></script>
+</body>
+
+</html>

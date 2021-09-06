@@ -1,0 +1,115 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  /* background: red; */
+  max-width: 1200px;
+  margin: 0 auto 0 auto;
+  min-height: 60vh;
+  padding: 3em 0 3em 0;
+}
+
+.jumbotron-title {
+  width: 100%;
+  max-width: 700px;
+  font-size: 30px;
+}
+
+.jumbotron-subtitle {
+  width: 100%;
+  max-width: 450px;
+  margin: 1rem 0 2rem 0;
+  font-size: 14px;
+}
+
+.jumbotron-title span {
+  color: var(--clr-primary);
+}
+
+.btn-signup.jumbotron {
+  display: flex;
+  max-width: 250px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.main-video {
+  margin: 75px 0 0 0;
+}
+
+@media (min-width: 360px) {
+}
+@media (min-width: 576px) {
+  .jumbotron-title {
+    font-size: 50px;
+  }
+
+  .jumbotron-subtitle {
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    margin-top: 95px;
+    min-height: calc(50vh + 95px);
+    padding: 5em 0 5em 0;
+  }
+
+  .jumbotron-title {
+    font-size: 60px;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-video {
+    margin: 75px 0 0 0;
+  }
+}
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1440px) {
+  /* .signin {
+    left: 20%;
+    transform: translateX(-20%);
+  }
+
+  .signup {
+    right: 20%;
+    transform: translateX(20%);
+  } */
+}
+
+@media (min-width: 1600px) {
+}
+
+@media (min-width: 1700px) {
+  /* .signin {
+    left: 25%;
+    transform: translateX(-25%);
+  }
+
+  .signup {
+    right: 25%;
+    transform: translateX(25%);
+  } */
+}
+
+@media (min-width: 2000px) {
+  /* .signin {
+    left: 30%;
+    transform: translateX(-30%);
+  }
+
+  .signup {
+    right: 25%;
+    transform: translateX(25%);
+  } */
+}

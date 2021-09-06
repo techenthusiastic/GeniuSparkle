@@ -1,0 +1,394 @@
+.pricing-model-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--clr-light);
+  border: 2px solid var(--clr-primary);
+  --height: 56px;
+  height: var(--height);
+  width: 268px;
+  border-radius: calc(var(--height) / 2);
+  padding: 4px;
+  margin: 0 auto;
+}
+.pricing-model-btn :is(.pricing-model-monthly, .pricing-model-yearly) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 128px;
+  font-size: 16px;
+  font-weight: 600;
+  z-index: 2;
+  -webkit-transition: color 400ms ease;
+  transition: color 400ms ease;
+}
+.pricing-model-btn .pricing-model-monthly {
+  color: var(--clr-primary);
+}
+.pricing-model-btn .pricing-model-yearly {
+  color: var(--clr-dark-gray);
+}
+.pricing-model-btn input ~ div {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translate(0, -50%);
+  height: 44px;
+  width: 128px;
+  border-radius: 22px;
+  background-color: var(--clr-primary-light);
+  z-index: 1;
+  -webkit-transition: transform 400ms ease;
+  transition: transform 400ms ease;
+}
+.pricing-model-btn input:checked ~ div {
+  -ms-transform: translate(128px, -50%);
+  -webkit-transform: translate(128px, -50%);
+  transform: translate(128px, -50%);
+}
+.pricing-model-btn input:checked ~ .pricing-model-monthly {
+  color: var(--clr-dark-gray);
+}
+.pricing-model-btn input:checked ~ .pricing-model-yearly {
+  color: var(--clr-primary);
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 32px;
+}
+
+.pricing-card {
+  display: block;
+  position: relative;
+  background-color: none;
+  border: 1px solid var(--clr-light-gray);
+  border-radius: 24px;
+  padding: 32px 32px 84px;
+}
+.pricing-card:hover {
+  border-color: var(--clr-focus);
+  box-shadow: var(--clr-focus-shadow) 0px 0px 0px 4px;
+}
+.pricing-card .name {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--clr-dark);
+  margin: 0 0 8px 0;
+}
+.pricing-card .pricing-discount,
+.pricing-card .pricing {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 0 12px 0;
+}
+.pricing-card .pricing-discount-price,
+.pricing-card .price {
+  /* font-size: 38px; */
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--clr-dark);
+  margin: 0 8px 0 0;
+}
+
+.price-ext {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card .price-sign {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pricing-card .pricing-discount {
+  margin-bottom: -1px;
+}
+.pricing-card .pricing-discount-price {
+  font-size: 20px;
+  text-decoration: line-through;
+}
+.pricing-card .pricing-discount .pricing-discount-card {
+  padding: 0.5em;
+  background: var(--clr-primary);
+  color: var(--clr-light);
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 0.5rem;
+  border-radius: 0.3em;
+}
+.pricing-card .pricing-model {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--clr-dark-gray);
+  margin: 0;
+}
+
+.pricing-card .description {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--clr-dark-gray);
+  margin: 0 0 24px 0;
+}
+.pricing-card .features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 0 32px;
+  margin: 0 0 32px;
+}
+.pricing-card .features :is(li, label) {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 12px;
+  color: var(--clr-dark);
+}
+.pricing-card [data-btn] {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  width: calc(100% - 64px);
+}
+.pricing-card.recommended::before {
+  content: "RECOMMENDED";
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 1.5px;
+  color: #fff;
+  background-image: linear-gradient(
+    -45deg,
+    rgb(25, 158, 255),
+    rgb(50, 43, 227)
+  );
+  background-position: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-color: initial;
+  background-size: 400% 400%;
+  animation: 6s ease 0s infinite normal none running bg-anim;
+}
+
+.pricing-card.custom {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+.pricing-card.custom .features input[type="checkbox"] ~ .checkbox {
+  border: 2px solid var(--clr-dark-gray);
+  background-color: none;
+  border-radius: 25%;
+  height: 20px;
+  width: 20px;
+  padding: 5px 0 0 4px;
+  margin: 0 8px 0 0;
+}
+.pricing-card.custom .features input[type="checkbox"]:checked ~ .checkbox {
+  border: 2px solid var(--clr-primary);
+}
+
+.pricing-card.custom .features input[type="checkbox"] ~ .checkbox > .cross {
+  display: block;
+  position: relative;
+  height: 7px;
+  width: 2px;
+  background-color: var(--clr-dark-gray);
+  transform: rotate(45deg);
+  margin: 0 0 0 3px;
+}
+.pricing-card.custom .features input[type="checkbox"] ~ .checkbox > .cross div {
+  position: absolute;
+  top: 0;
+  height: 7px;
+  width: 2px;
+  background-color: var(--clr-dark-gray);
+  transform: rotate(90deg);
+}
+.pricing-card.custom
+  .features
+  input[type="checkbox"]:checked
+  ~ .checkbox
+  > .cross {
+  display: none;
+}
+
+.pricing-card.custom .features input[type="checkbox"] ~ .checkbox > .tick {
+  display: none;
+  border-top: 2px solid var(--clr-primary);
+  border-right: 2px solid var(--clr-primary);
+  border-bottom: none;
+  border-left: none;
+  height: 5px;
+  width: 8px;
+  transform: rotate(135deg);
+}
+.pricing-card.custom
+  .features
+  input[type="checkbox"]:checked
+  ~ .checkbox
+  > .tick {
+  display: block;
+}
+
+.pricing-card.custom .features input[type="checkbox"] ~ span {
+  color: var(--clr-dark-gray);
+  text-decoration: line-through;
+}
+.pricing-card.custom .features input[type="checkbox"] ~ span > span {
+  color: var(--clr-gray);
+}
+.pricing-card.custom .features input[type="checkbox"]:checked ~ span {
+  text-decoration: none;
+}
+.pricing-card.custom .features input[type="checkbox"]:checked ~ span > span {
+  color: var(--clr-dark);
+}
+
+.header-pricing {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.pricing-info {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: 1rem;
+}
+
+.pricing-info p {
+  font-size: 14px;
+  margin-right: 0.5rem;
+}
+
+.pricing-info span {
+  margin-right: 0.5rem;
+  margin-bottom: .2rem;
+}
+
+
+.pricing-info svg {
+  width: 20px;
+  height: 35px;
+  margin-bottom: .2rem;
+}
+
+.feature-checklis-container {
+  border: 2px solid var(--clr-primary);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  padding: 5px 0 0 4px;
+  margin: 0 8px 0 0;
+}
+
+.feature-checklis-item {
+  border-top: 2px solid var(--clr-primary);
+  border-right: 2px solid var(--clr-primary);
+  border-bottom: none;
+  border-left: none;
+  height: 5px;
+  width: 8px;
+  transform: rotate(135deg);
+}
+
+.btn.plan {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  width: 70%;
+  font-size: 14px;
+  transform: translate(-50%);
+}
+.btn.plan.custom {
+  max-width: 300px;
+}
+
+@media (min-width: 375px) {
+  .pricing-card .features :is(li, label) {
+    font-size: 17px;
+  }
+
+  .pricing-card .pricing-model {
+    font-size: 18px;
+  }
+
+  .pricing-card .pricing-discount-price,
+  .pricing-card .price {
+    font-size: 32px;
+  }
+
+  .btn.plan {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 425px) {
+  /* .pricing-card .pricing-discount-price,
+  .pricing-card .price {
+    font-size: 32px;
+  } */
+  /* .pricing-card .price .price-sign {
+    font-size: 18px;
+  } */
+}
+
+@media (min-width: 768px) {
+  .pricing-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pricing-info p {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .pricing-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    transform: scale(0.95);
+    grid-gap: 7px;
+  }
+
+
+  .pricing-card .price {
+    font-size: 35px;
+    font-weight: 700;
+  }
+
+  .btn.plan {
+    font-size: 18px;
+    width: 80%;
+  }
+}
+@media (min-width: 1600px) {
+  .pricing-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    transform: scale(1);
+  }
+  .btn.plan {
+    font-size: initial;
+    width: 60%;
+  }
+}
