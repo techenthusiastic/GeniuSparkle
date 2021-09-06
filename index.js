@@ -14,10 +14,10 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // Rate Limiter
-const {
-	rateLimiterMiddleware,
-} = require("./src/helpers/rateLimiter/rateLimiter");
-app.use(rateLimiterMiddleware);
+// const {
+// 	rateLimiterMiddleware,
+// } = require("./src/helpers/rateLimiter/rateLimiter");
+// app.use(rateLimiterMiddleware);
 //
 app.use(express.static(__dirname + "/public"));
 //
