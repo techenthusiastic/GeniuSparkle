@@ -3,7 +3,7 @@ const { mailSender } = require("./mailSender");
 const fs = require("fs").promises;
 const mailData = {
 	senderName: "GeniuSparkle",
-	senderEmail: "temp@geniusparkle.com",
+	senderEmail: "noreply.shredtest@gmail.com",
 	sendTo: "",
 	mailSub: "",
 	htmlBody: "",

@@ -18,7 +18,7 @@ POST http://localhost/emailAuth/forgotPswd
 content-type: application/json
 
 {
-    "email": "shredtest1@gmail.com"
+    "email": "sinha1abc@gmail.com"
 }
 
 
@@ -43,6 +43,6 @@ POST http://localhost/emailAuth/login
 content-type: application/json
 
 {
-    "email": "shredtest1@gmail.com",
-    "password": "Sachin@12345"
+    "email": "sinha1abc@gmail.com",
+    "password": "HelloUser@123"
 }
