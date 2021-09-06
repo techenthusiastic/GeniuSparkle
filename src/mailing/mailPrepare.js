@@ -28,7 +28,7 @@ function mailPrepare(sendTo, templateCode, replaceDataArr = false) {
 					throw new Error();
 				}
 				const mailUID = uuidv4();
-				const verificationLink = `http://localhost/emailAuth/${
+				const verificationLink = `https://geniusparkle.herokuapp.com/emailAuth/${
 					templateCode === 1 ? "register" : "resetpswd"
 				}/${sendTo}/${mailUID}`;
 				htmlBody = htmlBody.replace(

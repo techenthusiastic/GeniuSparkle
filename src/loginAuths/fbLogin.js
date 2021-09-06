@@ -3,7 +3,7 @@ const FB_App_ID = process.env.FB_App_ID;
 const FB_App_Secret = process.env.FB_App_Secret;
 // const stringifiedParams = queryString.stringify({
 // 	client_id: FB_App_ID,
-// 	redirect_uri: "http://localhost/facebook/authenticate/",
+// 	redirect_uri: "https://geniusparkle.herokuapp.com/facebook/authenticate/",
 // 	scope: ["email", "public_profile"].join(","), // comma seperated string
 // 	response_type: "code",
 // 	auth_type: "rerequest",
@@ -22,7 +22,8 @@ async function getAccessTokenFromCodeFB(code) {
 			params: {
 				client_id: FB_App_ID,
 				client_secret: FB_App_Secret,
-				redirect_uri: "http://localhost/facebook/authenticate/",
+				redirect_uri:
+					"https://geniusparkle.herokuapp.com/facebook/authenticate/",
 				code,
 			},
 		});
