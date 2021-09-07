@@ -11,7 +11,7 @@ router.get("/server1", async (req, res) => {
 		});
 		const countryName = data.geoplugin_countryName;
 		const countryCode = geoplugin_countryCode;
-		if (countryName && countryCode) res.send({ countryName, countryCode });
+		if (countryName && countryCode) res.json({ countryName, countryCode });
 		else res.send("NOT_FOUND");
 	} catch (error) {
 		res.send("ERROR");
