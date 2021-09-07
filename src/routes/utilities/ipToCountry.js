@@ -9,9 +9,9 @@ router.get("/server1", async (req, res) => {
 			url: `http://www.geoplugin.net/json.gp?ip=${userIP}`,
 			method: "post",
 		});
-		console.log(data);
-		const country_name = data.geoplugin_countryName;
-		if (country_name) res.send(country_name);
+		const countryName = data.geoplugin_countryName;
+		const countryCode = geoplugin_countryCode;
+		if (countryName && countryCode) res.send({ countryName, countryCode });
 		else res.send("NOT_FOUND");
 	} catch (error) {
 		res.send("ERROR");
