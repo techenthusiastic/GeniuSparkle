@@ -67,3 +67,52 @@ planCustoms.forEach((p, i) => {
     }
   });
 });
+
+// redirect user for checkout
+
+// note* for this link is just for development not production
+
+let getURL = window.location.search.substr(1);
+
+document.querySelector(".btn.premium-price").addEventListener("click", () => {
+  // do for premium price in here
+  if (getURL === "upgrade") {
+    window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?upgrade-plan";
+  } else {
+    window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?premiun-plan";
+  }
+});
+document.querySelector(".btn.value-price").addEventListener("click", () => {
+  // do for value price in here
+  if (getURL === "upgrade") {
+    window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?upgrade-plan";
+  } else {
+    window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?value-plan";
+  }
+});
+document
+  .querySelector(".btn.essentials-price")
+  .addEventListener("click", () => {
+    // do for essentials price in here
+    if (getURL === "upgrade") {
+      window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?upgrade-plan";
+    } else {
+      window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?essentials-plan";
+    }
+  });
+document.querySelector(".btn.free-price").addEventListener("click", () => {
+  // do for free price in here
+  if (getURL === "upgrade") {
+    window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?upgrade-plan";
+  } else {
+    window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?free-plan";
+  }
+});
+document.querySelector(".btn.custom-price").addEventListener("click", () => {
+  // do for custom price in here
+  if (getURL === "upgrade") {
+    window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?upgrade-plan";
+  } else {
+    window.location.href = "https://cocky-bell-2506cc.netlify.app/payment?custom-plan";
+  }
+});

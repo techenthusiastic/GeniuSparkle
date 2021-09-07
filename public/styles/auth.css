@@ -15,6 +15,18 @@ body {
   overflow: hidden;
 }
 
+select,
+input,
+button {
+  font-family: "Montserrat", sans-serif;
+}
+
+input[type="date"] {
+  border: 0.1rem solid #0008;
+  padding: 0.45em;
+  margin-left: 0;
+}
+
 h1 {
   font-weight: bold;
   margin: 0;
@@ -45,8 +57,8 @@ a {
 
 button {
   border-radius: 20px;
-  border: 1px solid #077eff;
-  background-color: #077eff;
+  border: 1px solid #077aff;
+  background-color: #077aff;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -90,6 +102,7 @@ input {
 .reset-password-input,
 .sign-up-input,
 .sign-in-input {
+  position: relative;
   margin: 8px 0;
   width: 100%;
   display: flex;
@@ -123,7 +136,12 @@ input {
   transition: all 0.6s ease-in-out;
 }
 
+.sign-up-next-container {
+  visibility: hidden;
+}
+.sign-up-next-container,
 .reset-password-container,
+.parent-consent-container,
 .email-container {
   display: flex;
   align-items: center;
@@ -149,6 +167,12 @@ input {
   left: initial;
 }
 
+.sign-up-next-container.show {
+  visibility: visible;
+  top: 0;
+}
+.sign-up-next-container.show,
+.parent-consent-container.show,
 .email-container.show {
   z-index: 100;
   opacity: 1;
@@ -169,15 +193,18 @@ input {
   right: 100%;
   transform: translateX(100%);
 }
+.parent-consent-container h2,
 .email-container h2,
 .reset-password-container h2 {
   text-align: center;
 }
 
+.parent-consent-container h2,
 .email-container h2 {
   margin: 1rem 0 0.5rem 0;
 }
 
+.parent-consent-container p,
 .email-container p {
   margin: 0;
   font-size: 0.8rem;
@@ -192,6 +219,7 @@ input {
   z-index: 2;
 }
 
+.sign-up-next-container,
 .sign-up-container {
   display: grid;
   place-items: center;
@@ -207,6 +235,8 @@ input {
 } */
 
 .social-container {
+  display: flex;
+  align-items: center;
   margin: 20px 0;
 }
 
@@ -233,7 +263,7 @@ input {
 }
 
 .sign-up-terms a {
-  color: #077eff;
+  color: #077aff;
   text-decoration: none;
   font-size: 10px;
 }
@@ -244,8 +274,66 @@ input {
 }
 .goto-signin a,
 .goto-signup a {
-  color: #077eff;
+  color: #077aff;
   font-size: 10px;
+}
+
+.sign-up-input.password {
+  padding-right: 2.5rem;
+}
+
+.show-password {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.show-password.hide {
+  display: flex;
+}
+.hide-password {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+.hide-password.show {
+  display: flex;
+}
+
+.sign-up-next-container {
+  padding: 0;
+}
+
+.sign-up-next-container h1 {
+  margin-bottom: 1rem;
+}
+
+.sign-up-next-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sign-up-next-input label {
+  display: block;
+  font-size: 0.9rem;
+  margin: 1rem 0 0.25rem 0;
+}
+
+.sign-up-next-input select {
+  width: 100%;
+  padding: 0.5em;
+}
+
+.sign-up-next-input input {
+  margin-bottom: 2rem;
+}
+
+.sign-up-next-input option {
+  padding: 0.5em;
 }
 
 @media (min-width: 768px) {
@@ -258,6 +346,10 @@ input {
     height: 100%;
   }
 
+  .sign-up-next-container.show {
+    top: initial;
+  }
+
   .container {
     background-color: #fff;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -267,6 +359,7 @@ input {
     width: 50%;
   }
 
+  .sign-up-next-container,
   .sign-up-container {
     width: 50%;
   }
@@ -276,11 +369,18 @@ input {
   }
 
   .reset-password-container,
+  .parent-consent-container,
   .email-container {
     padding: 2em 3em;
     width: 50%;
   }
 
+  .sign-up-next-container {
+    width: 50%;
+  }
+
+  .sign-up-next-container.show,
+  .parent-consent-container.show,
   .email-container.show {
     z-index: 100;
     opacity: 1;
@@ -296,9 +396,9 @@ input {
   } */
 
   .overlay {
-    background: #077eff;
-    background: -webkit-linear-gradient(to right, #077eff, #077eff);
-    background: linear-gradient(to right, #077eff, #077eff);
+    background: #077aff;
+    background: -webkit-linear-gradient(to right, #077aff, #077aff);
+    background: linear-gradient(to right, #077aff, #077aff);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -359,6 +459,7 @@ input {
     transition: transform 0.6s ease-in-out;
   }
 
+  .sign-up-next-container,
   .sign-up-container {
     top: 0;
   }

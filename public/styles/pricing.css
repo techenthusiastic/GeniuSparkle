@@ -285,21 +285,21 @@
 
 .pricing-info span {
   margin-right: 0.5rem;
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
 }
-
 
 .pricing-info svg {
   width: 20px;
   height: 35px;
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
 }
 
 .feature-checklis-container {
   border: 2px solid var(--clr-primary);
   border-radius: 50%;
   height: 20px;
-  width: 20px;
+  width: 100%;
+  max-width: 20px;
   padding: 5px 0 0 4px;
   margin: 0 8px 0 0;
 }
@@ -370,7 +370,6 @@
     transform: scale(0.95);
     grid-gap: 7px;
   }
-
 
   .pricing-card .price {
     font-size: 35px;

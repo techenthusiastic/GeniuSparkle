@@ -30,5 +30,5 @@ async function storeErr(userInfo, err, req) {
 }
 const defaultErrMsg =
 	'<center><h1 style="color: orangered;font-family: monospace;">Something went wrong</h1></center>';
-
-module.exports = { storeErr, defaultErrMsg, getIP };
+const defaultErrMsgTxt = "Something went wrong";
+module.exports = { storeErr, defaultErrMsg, defaultErrMsgTxt, getIP };

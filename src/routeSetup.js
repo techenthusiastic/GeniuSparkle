@@ -14,5 +14,5 @@ const emailAuthRoute = require("./routes/login/emailLogin");
 router.use("/emailAuth", emailAuthRoute);
 // Get Country from IP
 const getCountryRoute = require("./routes/utilities/ipToCountry");
-router.use("/getInfo", getCountryRoute);
+router.use("/getCountry", getCountryRoute);
 module.exports = router;
