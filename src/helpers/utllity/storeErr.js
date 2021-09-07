@@ -1,10 +1,22 @@
 // storeErr(userInfo:object,err:Error)
 const error_Mdl = require("./../sql/models/error_Mdl");
-function storeErr(userInfo, err, req) {
+function getIP(req) {
+	return new Promise((resolve) => {
+		const ipAddress =
+			(typeof req.headers["x-forwarded-for"] === "string" &&
+				req.headers["x-forwarded-for"].split(",").shift()) ||
+			req.connection?.remoteAddress ||
+			req.socket?.remoteAddress ||
+			req.connection?.socket?.remoteAddress ||
+			req.ip;
+		resolve(ipAddress);
+	});
+}
+async function storeErr(userInfo, err, req) {
 	try {
 		if (req) {
 			userInfo.userAgent = req.headers["user-agent"];
-			userInfo.ip = req.headers["x-forwarded-for"] || req.ip;
+			userInfo.ip = await getIP(req);
 		}
 		const obj = {};
 		obj.userInfo = JSON.stringify(userInfo);
@@ -19,4 +31,4 @@ function storeErr(userInfo, err, req) {
 const defaultErrMsg =
 	'<center><h1 style="color: orangered;font-family: monospace;">Something went wrong</h1></center>';
 
-module.exports = { storeErr, defaultErrMsg };
+module.exports = { storeErr, defaultErrMsg, getIP };

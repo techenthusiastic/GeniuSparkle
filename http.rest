@@ -44,5 +44,5 @@ content-type: application/json
 
 {
     "email": "sinha1abc@gmail.com",
-    "password": "HelloUser@123"
+    "password": "S#i1lf54"
 }

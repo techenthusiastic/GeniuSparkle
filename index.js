@@ -42,7 +42,7 @@ app.use((err, req, res, next) => {
 	else if (err.name === "MongoError") {
 		showErr =
 			"Something went wrong.<br>You request couldn't be fulfilled at the moment.<br>Please retry after sometime.";
-		storeErr(req, err);
+		// storeErr(req, err);
 	}
 	res
 		.status(err.status || 500)

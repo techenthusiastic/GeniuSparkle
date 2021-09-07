@@ -6,7 +6,13 @@ router.use("/facebook", fbRouter);
 // Google Routes
 const googleRouter = require("./routes/login/googleLogin");
 router.use("/google", googleRouter);
+// Twitter Authentication Route
+const twitterRouter = require("./routes/login/twitterLogin");
+router.use("/twitter", twitterRouter);
 // Email Authentication Route
 const emailAuthRoute = require("./routes/login/emailLogin");
 router.use("/emailAuth", emailAuthRoute);
+// Get Country from IP
+const getCountryRoute = require("./routes/utilities/ipToCountry");
+router.use("/getInfo", getCountryRoute);
 module.exports = router;

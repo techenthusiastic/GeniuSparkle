@@ -46,7 +46,7 @@ function mailSender(mailData, sendFor, validFor = false) {
 			}
 			const transporter = await setupTransporter();
 			const mailUID = mailData.uuid ? mailData.uuid : uuidv4();
-			const unsubUrl = `https://geniusparkle.herokuapp.com/email/unsub/${mailData.sendTo}/${mailData.senderEmail}/${mailUID}`;
+			const unsubUrl = `http://localhost/email/unsub/${mailData.sendTo}/${mailData.senderEmail}/${mailUID}`;
 			// Prepare Mail Body - Append Unsubscribe Link
 			let htmlBody = mailData.htmlBody,
 				textBody = mailData.textBody;

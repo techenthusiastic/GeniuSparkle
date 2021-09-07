@@ -2,7 +2,7 @@ const { google } = require("googleapis");
 const googleConfig = {
 	clientId: process.env.gClientId,
 	clientSecret: process.env.gClientSecret,
-	redirect: "https://geniusparkle.herokuapp.com/google/login",
+	redirect: "http://localhost/google/login",
 };
 //
 const oAuth2Client = new google.auth.OAuth2(
