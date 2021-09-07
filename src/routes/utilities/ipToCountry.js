@@ -11,6 +11,7 @@ router.get("/1", async (req, res) => {
 			method: "post",
 		});
 		console.log(data);
+		res.json(data);
 	} catch (error) {
 		res.send(error.stack);
 	}
@@ -24,6 +25,7 @@ router.get("/2", async (req, res) => {
 			method: "post",
 		});
 		console.log(data);
+		res.send(data);
 	} catch (error) {
 		res.send(error.stack);
 	}
