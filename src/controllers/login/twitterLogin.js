@@ -35,6 +35,7 @@ const handleRequestToken = async (req, res, next) => {
 			headers: authHeader,
 		});
 		const respParams = url.parse(`?${data}`, true).query;
+		console.log(respParams);
 		if (respParams.oauth_callback_confirmed === "true") {
 			if (query.type === "signup")
 				// Sign Up
@@ -54,6 +55,7 @@ const handleRequestToken = async (req, res, next) => {
 			return res.status(401).send(defaultErrMsg);
 		}
 	} catch (error) {
+		console.log(error);
 		storeErr("", error, req);
 		return res.status(401).send(defaultErrMsg);
 	}
@@ -75,7 +77,7 @@ const handleAuthenticate = async (req, res) => {
 		});
 		const respParams = url.parse(`?${data}`, true).query;
 		const userInfo = await getUserData(respParams);
-		console.log(userInfo);
+		// console.log(userInfo);
 		// Check if already a registered user
 		const is_Registered = await credentialsMdl.findOne({
 			where: { email: userInfo.email },
