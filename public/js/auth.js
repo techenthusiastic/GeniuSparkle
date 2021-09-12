@@ -262,11 +262,14 @@ async function processSignUp(dobStr, isMinor) {
 		formData.append("dob", dobStr);
 		formData.append("isMinor", isMinor);
 		const formBody = new URLSearchParams(formData).toString();
-		const promise = await fetch("/emailAuth/initRegister", {
-			method: "POST",
-			body: formBody,
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		});
+		const promise = await fetch(
+			"https://geniusparkle.herokuapp.com/emailAuth/initRegister",
+			{
+				method: "POST",
+				body: formBody,
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			}
+		);
 		const response = await promise.json();
 		if (promise.status === 200 && promise.ok === true) {
 			sign_Up_Form1.reset();
@@ -328,11 +331,14 @@ sign_In_Form.onsubmit = async (event) => {
 		try {
 			const formData = new FormData(sign_In_Form);
 			const formBody = new URLSearchParams(formData).toString();
-			const promise = await fetch("/emailAuth/login", {
-				method: "POST",
-				body: formBody,
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			});
+			const promise = await fetch(
+				"https://geniusparkle.herokuapp.com/emailAuth/login",
+				{
+					method: "POST",
+					body: formBody,
+					headers: { "Content-Type": "application/x-www-form-urlencoded" },
+				}
+			);
 			const response = await promise.json();
 			if (promise.status === 200 && promise.ok === true) {
 				if (response.status === "success") {
@@ -394,11 +400,14 @@ forgetPswd_Form.onsubmit = async (event) => {
 		try {
 			const formData = new FormData(forgetPswd_Form);
 			const formBody = new URLSearchParams(formData).toString();
-			const promise = await fetch("/emailAuth/forgotPswd", {
-				method: "POST",
-				body: formBody,
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			});
+			const promise = await fetch(
+				"https://geniusparkle.herokuapp.com/emailAuth/forgotPswd",
+				{
+					method: "POST",
+					body: formBody,
+					headers: { "Content-Type": "application/x-www-form-urlencoded" },
+				}
+			);
 			const response = await promise.json();
 			if (promise.status === 200 && promise.ok === true) {
 				if (response.status === "success") {
@@ -462,11 +471,14 @@ resetPswd_Form.onsubmit = async (event) => {
 			formData.append("email", dataForReset.email);
 			formData.append("mailUID", dataForReset.mailUID);
 			const formBody = new URLSearchParams(formData).toString();
-			const promise = await fetch("/emailAuth/resetPswd", {
-				method: "POST",
-				body: formBody,
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			});
+			const promise = await fetch(
+				"https://geniusparkle.herokuapp.com/emailAuth/resetPswd",
+				{
+					method: "POST",
+					body: formBody,
+					headers: { "Content-Type": "application/x-www-form-urlencoded" },
+				}
+			);
 			const response = await promise.json();
 			if (promise.status === 200 && promise.ok === true) {
 				if (response.status === "success") {
@@ -514,3 +526,17 @@ function validateResetPswd() {
 const urlSearch = window.location.search;
 if (urlSearch.indexOf("?resetPswd=true") !== -1)
 	formContainer[6].classList.add("show");
+//
+function deleteAllCookies() {
+	var cookies = document.cookie.split(";");
+	for (var i = 0; i < cookies.length; i++) {
+		var cookie = cookies[i];
+		var eqPos = cookie.indexOf("=");
+		var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+		document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	}
+}
+deleteAllCookies();
+setTimeout(() => {
+	deleteAllCookies();
+}, 2000);
