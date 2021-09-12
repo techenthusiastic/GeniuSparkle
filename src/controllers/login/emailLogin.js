@@ -382,7 +382,7 @@ const handleEmailLogin = async (req, res, next) => {
 			);
 		}
 		const credentials = await credentialsMdl.findOne({
-			attributes: ["id", "email", "password", "status"],
+			attributes: ["id", "email", "password", "status", "isMinor"],
 			where: { email: reqBody.email },
 		});
 		if (credentials) {
@@ -390,7 +390,20 @@ const handleEmailLogin = async (req, res, next) => {
 				reqBody.password,
 				credentials.password
 			);
-			if (pswdVerify === true) {
+			if (pswdVerify === true && credentials.isMinor) {
+				// Consume one Failed Attempt for both
+				// await Promise.all([
+				// 	signInLimiter.consume(reqBody.email),
+				// 	signInLimiterIP.consume(ipUnameKey),
+				// ]);
+				//
+				const failsIP = false;
+				return next(
+					createErr.Unauthorized(
+						"User is Minor.<br>Parental Consent Needed.<br>Please Contact Us."
+					)
+				);
+			} else if (pswdVerify === true) {
 				// Delete Failure Couting for unameIP only - Reset on successful authorisation
 				// await not needed
 				// if (failsIP !== null && failsIP.consumedPoints > 0)
@@ -401,7 +414,7 @@ const handleEmailLogin = async (req, res, next) => {
 					loginCode: 4,
 				};
 				const loginDataObj = await processLogin(user_Info, false);
-				res.json({ status: "success", token: loginDataObj });
+				return res.json({ status: "success", token: loginDataObj });
 			} else {
 				// Consume one Failed Attempt for both
 				// await Promise.all([
@@ -410,7 +423,7 @@ const handleEmailLogin = async (req, res, next) => {
 				// ]);
 				//
 				const failsIP = false;
-				next(
+				return next(
 					createErr.Unauthorized(
 						`Invalid Username/Password.<br>${
 							failsIP ? failsIP.remainingPoints - 1 : 4
