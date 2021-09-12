@@ -508,10 +508,7 @@ const urlSearch = window.location.search;
 if (urlSearch.indexOf("?resetPswd=true") !== -1) {
 	const dataForReset = JSON.parse(localStorage.getItem("dataForReset"));
 	if (dataForReset === null || !(dataForReset.email && dataForReset.mailUID))
-		return showError(
-			showErr_resetPswd[1],
-			"Unauthenticated Reset was Detected."
-		);
+		showError(showErr_resetPswd[1], "Unauthenticated Reset was Detected.");
 	else {
 		formInputNode5[0].setAttribute("value", dataForReset.email);
 		formInputNode5[1].setAttribute("value", dataForReset.mailUID);
