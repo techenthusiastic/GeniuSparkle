@@ -1,3 +1,12 @@
+function onConversationsAPIReady() {
+	processAgeCheck();
+}
+window.hsConversationsSettings = {
+	loadImmediately: false,
+};
+if (window.HubSpotConversations) onConversationsAPIReady();
+else window.hsConversationsOnReady = [onConversationsAPIReady];
+//
 const container = document.getElementById("container");
 const formContainer = document.getElementsByClassName("form-container");
 const signUpContainer = formContainer[0];
@@ -28,8 +37,7 @@ addEventListener("load", () => {
 	}, 100);
 });
 //
-let userAge = 55 || localStorage.getItem("genius-age");
-
+let userAge = parseInt(localStorage.getItem("genius-age")) || 60;
 // Check after repeat sign-up - when moved out to other window and then want to try again
 function processAgeCheck() {
 	if (userAge && userAge < 13) {
@@ -192,7 +200,6 @@ function getAge(date) {
 	const month = today.getMonth() - birthDate.getMonth();
 	if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate()))
 		age--;
-	console.log(age);
 	return age;
 }
 //
@@ -223,7 +230,8 @@ sign_Up_Form2.onsubmit = (event) => {
 	if (error) return false;
 	//
 	const dobStr = `${birthYearInput}-${birthMonthInput}-${birthDayInput}`;
-	const userAge = getAge(dobStr);
+	userAge = getAge(dobStr);
+	localStorage.setItem("genius-age", userAge);
 	if (userAge > 0) {
 		// Hide All Errors Shown
 		for (let i = 0; i < dropdownContainer2.length; i++)
@@ -232,8 +240,7 @@ sign_Up_Form2.onsubmit = (event) => {
 			formInputNode2[i].classList.remove("error");
 		//
 		showErr_SignUp2.innerHTML = "";
-		localStorage.setItem("genius-age", userAge);
-		if (userAge < 13) {
+		if (userAge && userAge < 13) {
 			setTimeout(() => {
 				formContainer[1].classList.remove("show");
 			}, 500);
@@ -502,15 +509,6 @@ function validateResetPswd() {
 		isValid: Object.keys(errors).length < 1,
 	};
 }
-//
-function onConversationsAPIReady() {
-	processAgeCheck();
-}
-window.hsConversationsSettings = {
-	loadImmediately: false,
-};
-if (window.HubSpotConversations) onConversationsAPIReady();
-else window.hsConversationsOnReady = [onConversationsAPIReady];
 //
 // formContainer[0].classList.remove("show");
 const urlSearch = window.location.search;
