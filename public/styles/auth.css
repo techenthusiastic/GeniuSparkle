@@ -217,9 +217,6 @@ input {
 .section-reset h1 {
 	margin: 0 auto;
 }
-.section-reset .input-boxes {
-	margin: 3vh 0 2vh 0;
-}
 .section-reset.password ul {
 	margin-top: 0.3rem;
 }

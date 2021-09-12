@@ -440,13 +440,6 @@ resetPswd_Form.onsubmit = async (event) => {
 	event.preventDefault();
 	hideAllErrors(showErr_resetPswd);
 	removeErrorClass(resetPswd_IB);
-	// Check for localStorageData
-	const dataForReset = JSON.parse(localStorage.getItem("dataForReset"));
-	if (dataForReset === null || !(dataForReset.email && dataForReset.mailUID))
-		return showError(
-			showErr_resetPswd[1],
-			"Unauthenticated Reset was Detected."
-		);
 	// Validate
 	const status = validateResetPswd();
 	if (status.isValid) {
@@ -454,8 +447,6 @@ resetPswd_Form.onsubmit = async (event) => {
 		//
 		try {
 			const formData = new FormData(resetPswd_Form);
-			formData.append("email", dataForReset.email);
-			formData.append("mailUID", dataForReset.mailUID);
 			const formBody = new URLSearchParams(formData).toString();
 			const promise = await fetch("/emailAuth/resetPswd", {
 				method: "POST",
@@ -485,7 +476,7 @@ resetPswd_Form.onsubmit = async (event) => {
 	}
 };
 function validateResetPswd() {
-	const password = formInputNode5[0].value;
+	const password = formInputNode5[2].value;
 	const errors = {};
 	// password
 	const pswdErr = validatePassword(password);
@@ -505,9 +496,16 @@ function validateResetPswd() {
 //
 // formContainer[0].classList.remove("show");
 const urlSearch = window.location.search;
-if (urlSearch.indexOf("?resetPswd=true") !== -1)
+if (urlSearch.indexOf("?resetPswd=true") !== -1) {
+	const dataForReset = JSON.parse(localStorage.getItem("dataForReset"));
+	if (dataForReset === null || !(dataForReset.email && dataForReset.mailUID))
+		showError(showErr_resetPswd[1], "Unauthenticated Reset was Detected.");
+	else {
+		formInputNode5[0].setAttribute("value", dataForReset.email);
+		formInputNode5[1].setAttribute("value", dataForReset.mailUID);
+	}
 	formContainer[6].classList.add("show");
-else if (urlSearch.indexOf("?signup") !== -1) {
+} else if (urlSearch.indexOf("?signup") !== -1) {
 	if (window.HubSpotConversations) processAgeCheck();
 	else window.hsConversationsOnReady = [processAgeCheck];
 }
