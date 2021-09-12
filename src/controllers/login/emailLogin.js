@@ -54,7 +54,7 @@ const handleInitRegister = async (req, res, next) => {
 		// await loginAuthSendMailLimiter.consume(myIP);
 		// Process Initiate Register
 		const is_Found = await credentialsMdl.findOne({
-			attributes: ["status"],
+			attributes: ["id"],
 			where: { email: reqBody.email },
 		});
 		if (is_Found)
@@ -238,7 +238,7 @@ const handleForgotPassword = async (req, res, next) => {
 		// Process Initiate Register
 		//
 		const is_Found = await credentialsMdl.findOne({
-			attributes: ["status"],
+			attributes: ["id"],
 			where: { email: reqBody.email },
 		});
 		if (!is_Found)
@@ -382,7 +382,7 @@ const handleEmailLogin = async (req, res, next) => {
 			);
 		}
 		const credentials = await credentialsMdl.findOne({
-			attributes: ["id", "email", "password", "status", "isMinor"],
+			attributes: ["id", "email", "password", "isMinor"],
 			where: { email: reqBody.email },
 		});
 		if (credentials) {

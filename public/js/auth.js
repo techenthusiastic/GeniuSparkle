@@ -61,26 +61,22 @@ signInButton.addEventListener("click", () => {
 	for (let i = 1; i <= 3; i++) formContainer[i].classList.remove("show");
 	container.classList.remove("right-panel-active");
 	showAgain();
-	window.HubSpotConversations.widget.remove();
 });
 gotoBtn[0].addEventListener("click", (e) => {
 	e.preventDefault();
 	signInContainer.style.top = "-50%";
 	signInContainer.style.transform = "translateY(50%)";
 	signUpContainer.style.top = "-100%";
-	window.HubSpotConversations.widget.remove();
 });
 // reset password
 const gotoResetPassword = document.getElementById("reset-password");
 gotoResetPassword.addEventListener("click", () => {
 	formContainer[5].classList.add("show");
 	formContainer[2].classList.add("reset-password");
-	window.HubSpotConversations.widget.remove();
 });
 gotoBtn[2].addEventListener("click", (e) => {
 	e.preventDefault();
 	formContainer[5].classList.remove("show");
-	window.HubSpotConversations.widget.remove();
 });
 //
 function showAgain() {
@@ -105,13 +101,9 @@ function validateEmail(email) {
 }
 function validatePassword(password) {
 	if (password.trim() === "") return "Password must not be empty";
-	if (/\s/g.test(password)) return -2;
-	if (/\t/g.test(password)) return -3;
-	const pasRegEx =
-		/^(?=.*[A-Z])(?=.*[a-z])(?=.*[\d])(?=.*[\W|_])[a-zA-Z0-9\W]{8,16}$/;
-	if (!password.match(pasRegEx)) return -4;
-	//
-	return false;
+	else if (/\s/g.test(password)) return -2;
+	else if (/\t/g.test(password)) return -3;
+	else return false;
 	// false means all validation passed
 }
 function removeErrorClass(arr) {
@@ -168,8 +160,6 @@ function validateRegisterInput() {
 				? "No whitespace allowed"
 				: pswdErr == -3
 				? "No TAB spaces allowed"
-				: pswdErr == -4
-				? "Password doesn't meet minimum password strength criteria"
 				: pswdErr;
 	return {
 		errors,
@@ -257,14 +247,11 @@ async function processSignUp(dobStr, isMinor) {
 		formData.append("dob", dobStr);
 		formData.append("isMinor", isMinor);
 		const formBody = new URLSearchParams(formData).toString();
-		const promise = await fetch(
-			"https://geniusparkle.herokuapp.com/emailAuth/initRegister",
-			{
-				method: "POST",
-				body: formBody,
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			}
-		);
+		const promise = await fetch("http://localhost/emailAuth/initRegister", {
+			method: "POST",
+			body: formBody,
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		});
 		const response = await promise.json();
 		if (promise.status === 200 && promise.ok === true) {
 			sign_Up_Form1.reset();
@@ -326,14 +313,11 @@ sign_In_Form.onsubmit = async (event) => {
 		try {
 			const formData = new FormData(sign_In_Form);
 			const formBody = new URLSearchParams(formData).toString();
-			const promise = await fetch(
-				"https://geniusparkle.herokuapp.com/emailAuth/login",
-				{
-					method: "POST",
-					body: formBody,
-					headers: { "Content-Type": "application/x-www-form-urlencoded" },
-				}
-			);
+			const promise = await fetch("http://localhost/emailAuth/login", {
+				method: "POST",
+				body: formBody,
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			});
 			const response = await promise.json();
 			if (promise.status === 200 && promise.ok === true) {
 				if (response.status === "success") {
@@ -395,14 +379,11 @@ forgetPswd_Form.onsubmit = async (event) => {
 		try {
 			const formData = new FormData(forgetPswd_Form);
 			const formBody = new URLSearchParams(formData).toString();
-			const promise = await fetch(
-				"https://geniusparkle.herokuapp.com/emailAuth/forgotPswd",
-				{
-					method: "POST",
-					body: formBody,
-					headers: { "Content-Type": "application/x-www-form-urlencoded" },
-				}
-			);
+			const promise = await fetch("http://localhost/emailAuth/forgotPswd", {
+				method: "POST",
+				body: formBody,
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			});
 			const response = await promise.json();
 			if (promise.status === 200 && promise.ok === true) {
 				if (response.status === "success") {
@@ -466,14 +447,11 @@ resetPswd_Form.onsubmit = async (event) => {
 			formData.append("email", dataForReset.email);
 			formData.append("mailUID", dataForReset.mailUID);
 			const formBody = new URLSearchParams(formData).toString();
-			const promise = await fetch(
-				"https://geniusparkle.herokuapp.com/emailAuth/resetPswd",
-				{
-					method: "POST",
-					body: formBody,
-					headers: { "Content-Type": "application/x-www-form-urlencoded" },
-				}
-			);
+			const promise = await fetch("http://localhost/emailAuth/resetPswd", {
+				method: "POST",
+				body: formBody,
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			});
 			const response = await promise.json();
 			if (promise.status === 200 && promise.ok === true) {
 				if (response.status === "success") {
@@ -507,8 +485,6 @@ function validateResetPswd() {
 				? "No whitespace allowed"
 				: pswdErr == -3
 				? "No TAB spaces allowed"
-				: pswdErr == -4
-				? "Password doesn't meet minimum password strength criteria"
 				: pswdErr;
 	//
 	return {

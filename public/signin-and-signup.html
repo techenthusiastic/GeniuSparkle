@@ -57,7 +57,7 @@
 				<span>or use your email account</span>
 				<div class="input-container">
 					<div class="input-boxes">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg width="20" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path
 								d="M12 5.9C13.16 5.9 14.1 6.84 14.1 8C14.1 9.16 13.16 10.1 12 10.1C10.84 10.1 9.9 9.16 9.9 8C9.9 6.84 10.84 5.9 12 5.9ZM12 14C14.97 14 18.1 16.36 18.1 17V18.1H5.9V17C5.9 16.36 9.03 14 12 14ZM12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4ZM12 12C9.33 12 4 14.34 4 17V20H20V17C20 14.34 14.67 12 12 12Z"
 								fill="#757575" />
@@ -68,7 +68,7 @@
 				</div>
 				<div class="input-container">
 					<div class="input-boxes">
-						<svg width="24" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg width="20" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M22 4H2.01L2 20H22V4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z"
 								fill="#757575" />
 						</svg>
@@ -83,8 +83,8 @@
 								d="M12.5 17C13.8063 17 14.875 16.1 14.875 15C14.875 13.9 13.8063 13 12.5 13C11.1937 13 10.125 13.9 10.125 15C10.125 16.1 11.1937 17 12.5 17ZM19.625 8H18.4375V6C18.4375 3.24 15.7775 1 12.5 1C9.2225 1 6.5625 3.24 6.5625 6V8H5.375C4.06875 8 3 8.9 3 10V20C3 21.1 4.06875 22 5.375 22H19.625C20.9313 22 22 21.1 22 20V10C22 8.9 20.9313 8 19.625 8ZM8.81875 6C8.81875 4.29 10.4694 2.9 12.5 2.9C14.5306 2.9 16.1813 4.29 16.1813 6V8H8.81875V6ZM19.625 20H5.375V10H19.625V20Z"
 								fill="#757575" />
 						</svg>
-						<input type="password" class="livePswdValidateFor togglePswdFor" name="password"
-							placeholder="Password" minlength="8" maxlength="16" required />
+						<input type="password" class="togglePswdFor" name="password" placeholder="Password"
+							minlength="8" maxlength="30" required />
 						<svg class="toogle-pswd-icon show" width="28" height="28" viewBox="0 0 49 49" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd"
@@ -99,72 +99,6 @@
 						</svg>
 					</div>
 					<span class="input-text-error"></span>
-					<ul class="live-pswd-validate hide">
-						<li>
-							<svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-								<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							</svg>
-							<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-									stroke-linecap="round" />
-							</svg>
-							Min 8 - Max 16 Characters
-						</li>
-						<li><svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-								<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							</svg>
-							<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-									stroke-linecap="round" />
-							</svg>
-							At-least 1 UpperCase (A-Z)
-						</li>
-						<li>
-							<svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-								<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							</svg>
-							<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-									stroke-linecap="round" />
-							</svg>
-							At-least 1 LowerCase (a-z)
-						</li>
-						<li>
-							<svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-								<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							</svg>
-							<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-									stroke-linecap="round" />
-							</svg>
-							At-least 1 Number (0-9)
-						</li>
-						<li>
-							<svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-								<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							</svg>
-							<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-									stroke-linecap="round" />
-							</svg>
-							At-least 1 Special Character (like @ # $ % &amp; * )
-						</li>
-					</ul>
 				</div>
 				<small class="sign-up-terms">By creating an account, you agree to our <a href="!#">Terms and
 						Conditions</a> and <a href="!#">Privacy Policy</a></small>
@@ -277,7 +211,7 @@
 				<span>or use your email account</span>
 				<div class="input-container">
 					<div class="input-boxes">
-						<svg width="24" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg width="20" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M22 4H2.01L2 20H22V4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z"
 								fill="#757575" />
 						</svg>
@@ -293,7 +227,7 @@
 								fill="#757575" />
 						</svg>
 						<input type="password" class="togglePswdFor" name="password" placeholder="Password"
-							minlength="8" maxlength="16" required />
+							minlength="8" maxlength="30" required />
 						<svg class="toogle-pswd-icon show" width="28" height="28" viewBox="0 0 49 49" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd"
@@ -322,7 +256,7 @@
 				<h1>Password Reset</h1>
 				<div class="input-container">
 					<div class="input-boxes">
-						<svg width="24" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg width="20" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M22 4H2.01L2 20H22V4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z"
 								fill="#757575" />
 						</svg>
@@ -337,19 +271,6 @@
 				<p class="goto">Go Back to<a href="#"> Login </a></p>
 			</form>
 		</div>
-		<!-- <div class="form-container email-sent-container email sign-up-completed">
-			<form>
-				<svg width="41" height="29" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path
-						d="M1.82292 0C1.63556 0 1.55105 0.234517 1.69534 0.354028L20.7166 16.1085C20.7919 16.1709 20.9011 16.1697 20.975 16.1058L39.1827 0.351243C39.3228 0.230049 39.237 0 39.0518 0H1.82292ZM0 27.2919C0 27.2898 0.000852825 27.2877 0.00237498 27.2861L13.7944 13.2404C13.8765 13.1568 13.8695 13.0209 13.7793 12.9462L0.327563 1.8065C0.197186 1.69853 0 1.79126 0 1.96054V27.2919V27.2919ZM15.6266 14.4766C15.5466 14.4103 15.4292 14.4163 15.3564 14.4904L1.43852 28.6599C1.31426 28.7864 1.40388 29 1.5812 29H39.3133C39.4884 29 39.579 28.7908 39.4591 28.6631L26.1569 14.4994C26.0835 14.4212 25.9613 14.4149 25.8802 14.4852L21.501 18.2805C21.3246 18.4298 21.103 18.513 20.8733 18.5161C20.6437 18.5192 20.42 18.442 20.2397 18.2974L15.6266 14.4766ZM27.6944 12.9217C27.6084 12.9961 27.6016 13.127 27.6794 13.2098L40.6542 27.0353C40.7782 27.1674 41 27.0796 41 26.8984V1.84734C41 1.67604 40.7987 1.58401 40.6691 1.69609L27.6944 12.9217Z"
-						fill="#077AFF" />
-				</svg>
-				<h2>Verify Your Email</h2>
-				<p>We sent you an activation link to <span class="sentToMail">Not Sent</span>.
-					Please be sure to check your spam folder too
-				</p>
-			</form>
-		</div> -->
 		<div class="form-container section-reset password">
 			<form>
 				<h1>New Password</h1>
@@ -359,8 +280,8 @@
 							d="M12.5 17C13.8063 17 14.875 16.1 14.875 15C14.875 13.9 13.8063 13 12.5 13C11.1937 13 10.125 13.9 10.125 15C10.125 16.1 11.1937 17 12.5 17ZM19.625 8H18.4375V6C18.4375 3.24 15.7775 1 12.5 1C9.2225 1 6.5625 3.24 6.5625 6V8H5.375C4.06875 8 3 8.9 3 10V20C3 21.1 4.06875 22 5.375 22H19.625C20.9313 22 22 21.1 22 20V10C22 8.9 20.9313 8 19.625 8ZM8.81875 6C8.81875 4.29 10.4694 2.9 12.5 2.9C14.5306 2.9 16.1813 4.29 16.1813 6V8H8.81875V6ZM19.625 20H5.375V10H19.625V20Z"
 							fill="#757575" />
 					</svg>
-					<input type="password" class="livePswdValidateFor togglePswdFor" name="password"
-						placeholder="Enter new Password" minlength="8" maxlength="16" required />
+					<input type="password" class="togglePswdFor" name="password" placeholder="Enter new Password"
+						minlength="8" maxlength="30" required />
 					<svg class="toogle-pswd-icon show" width="28" height="28" viewBox="0 0 49 49" fill="none"
 						xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" clip-rule="evenodd"
@@ -373,74 +294,8 @@
 							d="M24.0055 8.00098C32.2775 8.00698 39.7055 13.805 43.8775 23.513C44.0415 23.891 44.0415 24.319 43.8775 24.697C39.7075 34.407 32.2775 40.205 24.0055 40.211H23.9935C15.7215 40.205 8.2935 34.407 4.1215 24.697C3.9595 24.319 3.9595 23.891 4.1215 23.513C8.2935 13.805 15.7235 8.00698 23.9935 8.00098H24.0055ZM23.9995 11.001C17.1275 11.003 10.8595 15.889 7.1395 24.105C10.8595 32.323 17.1255 37.209 23.9995 37.211C30.8735 37.209 37.1395 32.323 40.8595 24.105C37.1395 15.889 30.8735 11.003 23.9995 11.001ZM23.9989 16.2826C28.3129 16.2826 31.8229 19.7926 31.8229 24.1066C31.8229 28.4186 28.3129 31.9266 23.9989 31.9266C19.6849 31.9266 16.1769 28.4186 16.1769 24.1066C16.1769 19.7926 19.6849 16.2826 23.9989 16.2826ZM23.9989 19.2826C21.3389 19.2826 19.1769 21.4466 19.1769 24.1066C19.1769 26.7646 21.3389 28.9266 23.9989 28.9266C26.6589 28.9266 28.8229 26.7646 28.8229 24.1066C28.8229 21.4466 26.6589 19.2826 23.9989 19.2826Z"
 							fill="#757575" />
 					</svg>
+					<span class="input-text-error"></span>
 				</div>
-				<span class="input-text-error"></span>
-				<ul class="live-pswd-validate hide">
-					<li>
-						<svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-						</svg>
-						<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-								stroke-linecap="round" />
-						</svg>
-						Min 8 - Max 16 Characters
-					</li>
-					<li><svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-						</svg>
-						<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-								stroke-linecap="round" />
-						</svg>
-						At-least 1 UpperCase (A-Z)
-					</li>
-					<li>
-						<svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-						</svg>
-						<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-								stroke-linecap="round" />
-						</svg>
-						At-least 1 LowerCase (a-z)
-					</li>
-					<li>
-						<svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-						</svg>
-						<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-								stroke-linecap="round" />
-						</svg>
-						At-least 1 Number (0-9)
-					</li>
-					<li>
-						<svg class="live-pswd-check-invalid show" viewBox="0 0 62 62" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5 57L57 5" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-							<path d="M5 5L57 57" stroke="#EA3943" stroke-width="10" stroke-linecap="round" />
-						</svg>
-						<svg class="live-pswd-check-valid hide" viewBox="0 0 88 65" fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M5.5 31L31.5 57L83 5.5" stroke="#28C76F" stroke-width="10"
-								stroke-linecap="round" />
-						</svg>
-						At-least 1 Special Character (like @ # $ % &amp; * )
-					</li>
-				</ul>
 				<span class="input-text-error errMid"></span>
 				<button class="btn-with-spinner" type="submit">Submit <svg class="spinner hide" viewBox="0 0 50 50">
 						<circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
