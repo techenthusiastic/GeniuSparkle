@@ -1,11 +1,3 @@
-function onConversationsAPIReady() {
-	processAgeCheck();
-}
-window.hsConversationsSettings = {
-	loadImmediately: false,
-};
-if (window.HubSpotConversations) onConversationsAPIReady();
-else window.hsConversationsOnReady = [onConversationsAPIReady];
 //
 const container = document.getElementById("container");
 const formContainer = document.getElementsByClassName("form-container");
@@ -540,3 +532,13 @@ deleteAllCookies();
 setTimeout(() => {
 	deleteAllCookies();
 }, 2000);
+//
+function onConversationsAPIReady() {
+	processAgeCheck();
+}
+window.hsConversationsSettings = {
+	loadImmediately: false,
+};
+if (window.HubSpotConversations) onConversationsAPIReady();
+else window.hsConversationsOnReady = [onConversationsAPIReady];
+//
