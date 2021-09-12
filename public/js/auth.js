@@ -1,4 +1,3 @@
-//
 const container = document.getElementById("container");
 const formContainer = document.getElementsByClassName("form-container");
 const signUpContainer = formContainer[0];
@@ -62,22 +61,26 @@ signInButton.addEventListener("click", () => {
 	for (let i = 1; i <= 3; i++) formContainer[i].classList.remove("show");
 	container.classList.remove("right-panel-active");
 	showAgain();
+	window.HubSpotConversations.widget.remove();
 });
 gotoBtn[0].addEventListener("click", (e) => {
 	e.preventDefault();
 	signInContainer.style.top = "-50%";
 	signInContainer.style.transform = "translateY(50%)";
 	signUpContainer.style.top = "-100%";
+	window.HubSpotConversations.widget.remove();
 });
 // reset password
 const gotoResetPassword = document.getElementById("reset-password");
 gotoResetPassword.addEventListener("click", () => {
 	formContainer[5].classList.add("show");
 	formContainer[2].classList.add("reset-password");
+	window.HubSpotConversations.widget.remove();
 });
 gotoBtn[2].addEventListener("click", (e) => {
 	e.preventDefault();
 	formContainer[5].classList.remove("show");
+	window.HubSpotConversations.widget.remove();
 });
 //
 function showAgain() {
@@ -243,10 +246,10 @@ sign_Up_Form2.onsubmit = (event) => {
 	} else return (showErr_SignUp2.innerHTML = "Invalid Date of Birth.");
 	// All Verification Complete - so initiate data send to server
 };
-const spinnerImg = document.querySelectorAll(".btn-with-spinner img");
+const spinnerSVG = document.querySelectorAll(".btn-with-spinner .spinner");
 async function processSignUp(dobStr, isMinor) {
 	hideAllErrors([showErr_SignUp2]);
-	nodeToggleView(spinnerImg[0], 1);
+	nodeToggleView(spinnerSVG[0], 1);
 	try {
 		const formData = new FormData(sign_Up_Form1);
 		const formData2 = new FormData(sign_Up_Form2);
@@ -280,7 +283,7 @@ async function processSignUp(dobStr, isMinor) {
 		console.log(error);
 		showError(showErr_SignUp2, defaultErrMsg);
 	} finally {
-		nodeToggleView(spinnerImg[0]);
+		nodeToggleView(spinnerSVG[0]);
 	}
 }
 // Attach Option HTML - Month
@@ -318,7 +321,7 @@ sign_In_Form.onsubmit = async (event) => {
 	removeErrorClass(sign_In_Form_IB);
 	const status = validateLoginInput();
 	if (status.isValid) {
-		nodeToggleView(spinnerImg[1], 1);
+		nodeToggleView(spinnerSVG[1], 1);
 		//
 		try {
 			const formData = new FormData(sign_In_Form);
@@ -344,7 +347,7 @@ sign_In_Form.onsubmit = async (event) => {
 		} catch (error) {
 			showError(showErr_SignIn[2], defaultErrMsg);
 		} finally {
-			nodeToggleView(spinnerImg[1]);
+			nodeToggleView(spinnerSVG[1]);
 		}
 	} else {
 		const errors = status.errors;
@@ -366,7 +369,7 @@ function validateLoginInput() {
 	mailErr ? (errors.email = mailErr) : "";
 	// password
 	const pswdErr = validatePassword(password);
-	if (pswdErr) errors.email = pswdErr < -1 ? "Invalid Password" : pswdErr;
+	if (pswdErr) errors.password = pswdErr < -1 ? "Invalid Password" : pswdErr;
 	return {
 		errors,
 		isValid: Object.keys(errors).length < 1,
@@ -387,7 +390,7 @@ forgetPswd_Form.onsubmit = async (event) => {
 	// Validate
 	const status = validateForgetPswd();
 	if (status.isValid) {
-		nodeToggleView(spinnerImg[2], 1);
+		nodeToggleView(spinnerSVG[2], 1);
 		//
 		try {
 			const formData = new FormData(forgetPswd_Form);
@@ -414,7 +417,7 @@ forgetPswd_Form.onsubmit = async (event) => {
 		} catch (error) {
 			showError(showErr_forgetPswd[1], defaultErrMsg);
 		} finally {
-			nodeToggleView(spinnerImg[1]);
+			nodeToggleView(spinnerSVG[1]);
 		}
 	} else {
 		const errors = status.errors;
@@ -456,7 +459,7 @@ resetPswd_Form.onsubmit = async (event) => {
 	// Validate
 	const status = validateResetPswd();
 	if (status.isValid) {
-		nodeToggleView(spinnerImg[3], 1);
+		nodeToggleView(spinnerSVG[3], 1);
 		//
 		try {
 			const formData = new FormData(resetPswd_Form);
@@ -484,7 +487,7 @@ resetPswd_Form.onsubmit = async (event) => {
 		} catch (error) {
 			showError(showErr_resetPswd[1], defaultErrMsg);
 		} finally {
-			nodeToggleView(spinnerImg[3]);
+			nodeToggleView(spinnerSVG[3]);
 		}
 	} else {
 		const errors = status.errors;
@@ -541,4 +544,3 @@ window.hsConversationsSettings = {
 };
 if (window.HubSpotConversations) onConversationsAPIReady();
 else window.hsConversationsOnReady = [onConversationsAPIReady];
-//
