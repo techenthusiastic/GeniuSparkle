@@ -454,6 +454,7 @@ resetPswd_Form.onsubmit = async (event) => {
 		//
 		try {
 			const formData = new FormData(resetPswd_Form);
+			formData.delete("email");
 			formData.append("email", dataForReset.email);
 			formData.append("mailUID", dataForReset.mailUID);
 			const formBody = new URLSearchParams(formData).toString();
