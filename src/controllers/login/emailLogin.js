@@ -66,7 +66,9 @@ const handleInitRegister = async (req, res, next) => {
 		else {
 			// Send a Verification Mail and store the mail in sent_mails_Database
 			try {
-				const status = await mailPrepare(reqBody.email, 1);
+				const status = reqBody.isMinor
+					? { sendSuccess: true }
+					: await mailPrepare(reqBody.email, 1);
 				if (status.sendSuccess) {
 					const hashedPswd = await bcrypt.hash(reqBody.password, saltRounds);
 					if (hashedPswd) {
