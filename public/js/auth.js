@@ -485,7 +485,7 @@ resetPswd_Form.onsubmit = async (event) => {
 	}
 };
 function validateResetPswd() {
-	const password = formInputNode5[2].value;
+	const password = formInputNode5[1].value;
 	const errors = {};
 	// password
 	const pswdErr = validatePassword(password);
@@ -509,10 +509,8 @@ if (urlSearch.indexOf("?resetPswd=true") !== -1) {
 	const dataForReset = JSON.parse(localStorage.getItem("dataForReset"));
 	if (dataForReset === null || !(dataForReset.email && dataForReset.mailUID))
 		showError(showErr_resetPswd[1], "Unauthenticated Reset was Detected.");
-	else {
-		formInputNode5[0].setAttribute("value", dataForReset.email);
-		formInputNode5[1].setAttribute("value", dataForReset.mailUID);
-	}
+	else formInputNode5[0].setAttribute("value", dataForReset.email);
+	//
 	formContainer[6].classList.add("show");
 } else if (urlSearch.indexOf("?signup") !== -1) {
 	if (window.HubSpotConversations) processAgeCheck();
