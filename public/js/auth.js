@@ -440,6 +440,13 @@ resetPswd_Form.onsubmit = async (event) => {
 	event.preventDefault();
 	hideAllErrors(showErr_resetPswd);
 	removeErrorClass(resetPswd_IB);
+	// Check for localStorageData
+	const dataForReset = JSON.parse(localStorage.getItem("dataForReset"));
+	if (dataForReset === null || !(dataForReset.email && dataForReset.mailUID))
+		return showError(
+			showErr_resetPswd[1],
+			"Unauthenticated Reset was Detected."
+		);
 	// Validate
 	const status = validateResetPswd();
 	if (status.isValid) {
@@ -447,6 +454,8 @@ resetPswd_Form.onsubmit = async (event) => {
 		//
 		try {
 			const formData = new FormData(resetPswd_Form);
+			formData.append("email", dataForReset.email);
+			formData.append("mailUID", dataForReset.mailUID);
 			const formBody = new URLSearchParams(formData).toString();
 			const promise = await fetch("/emailAuth/resetPswd", {
 				method: "POST",
@@ -470,7 +479,7 @@ resetPswd_Form.onsubmit = async (event) => {
 		}
 	} else {
 		const errors = status.errors;
-		const classList = resetPswd_IB[0].classList;
+		const classList = resetPswd_IB[1].classList;
 		errors.password ? classList.add("error") : classList.remove("error");
 		showErr_resetPswd[0].innerHTML = errors.password || "";
 	}
@@ -499,7 +508,10 @@ const urlSearch = window.location.search;
 if (urlSearch.indexOf("?resetPswd=true") !== -1) {
 	const dataForReset = JSON.parse(localStorage.getItem("dataForReset"));
 	if (dataForReset === null || !(dataForReset.email && dataForReset.mailUID))
-		showError(showErr_resetPswd[1], "Unauthenticated Reset was Detected.");
+		return showError(
+			showErr_resetPswd[1],
+			"Unauthenticated Reset was Detected."
+		);
 	else {
 		formInputNode5[0].setAttribute("value", dataForReset.email);
 		formInputNode5[1].setAttribute("value", dataForReset.mailUID);
