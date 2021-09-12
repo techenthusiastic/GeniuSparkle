@@ -247,7 +247,7 @@ async function processSignUp(dobStr, isMinor) {
 		formData.append("dob", dobStr);
 		formData.append("isMinor", isMinor);
 		const formBody = new URLSearchParams(formData).toString();
-		const promise = await fetch("http://localhost/emailAuth/initRegister", {
+		const promise = await fetch("/emailAuth/initRegister", {
 			method: "POST",
 			body: formBody,
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -313,7 +313,7 @@ sign_In_Form.onsubmit = async (event) => {
 		try {
 			const formData = new FormData(sign_In_Form);
 			const formBody = new URLSearchParams(formData).toString();
-			const promise = await fetch("http://localhost/emailAuth/login", {
+			const promise = await fetch("/emailAuth/login", {
 				method: "POST",
 				body: formBody,
 				headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -379,7 +379,7 @@ forgetPswd_Form.onsubmit = async (event) => {
 		try {
 			const formData = new FormData(forgetPswd_Form);
 			const formBody = new URLSearchParams(formData).toString();
-			const promise = await fetch("http://localhost/emailAuth/forgotPswd", {
+			const promise = await fetch("/emailAuth/forgotPswd", {
 				method: "POST",
 				body: formBody,
 				headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -447,7 +447,7 @@ resetPswd_Form.onsubmit = async (event) => {
 			formData.append("email", dataForReset.email);
 			formData.append("mailUID", dataForReset.mailUID);
 			const formBody = new URLSearchParams(formData).toString();
-			const promise = await fetch("http://localhost/emailAuth/resetPswd", {
+			const promise = await fetch("/emailAuth/resetPswd", {
 				method: "POST",
 				body: formBody,
 				headers: { "Content-Type": "application/x-www-form-urlencoded" },
