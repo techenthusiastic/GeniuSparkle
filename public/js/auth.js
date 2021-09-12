@@ -30,7 +30,6 @@ addEventListener("load", () => {
 //
 let userAge = 55 || localStorage.getItem("genius-age");
 
-console.log(formContainer);
 // Check after repeat sign-up - when moved out to other window and then want to try again
 function processAgeCheck() {
 	if (userAge && userAge < 13) {
@@ -331,8 +330,8 @@ sign_In_Form.onsubmit = async (event) => {
 			if (promise.status === 200 && promise.ok === true) {
 				if (response.status === "success") {
 					window.localStorage.setItem("token", JSON.stringify(response.token));
-					window.location.assign("/");
-					// showError(showErr_SignIn[2], "Login was Success");
+					// window.location.assign("/");
+					showError(showErr_SignIn[2], "Login was Success");
 				} else showError(showErr_SignIn[2], defaultErrMsg);
 			} else if (response.error)
 				showError(showErr_SignIn[2], response.error.message);
@@ -466,6 +465,7 @@ resetPswd_Form.onsubmit = async (event) => {
 				if (response.status === "success") {
 					window.localStorage.setItem("token", JSON.stringify(response.token));
 					// window.location.assign("/");
+					showError(showErr_resetPswd[1], "Reset was Success");
 				} else showError(showErr_resetPswd[1], defaultErrMsg);
 			} else if (response.error)
 				showError(showErr_resetPswd[1], response.error.message);
@@ -514,14 +514,5 @@ else window.hsConversationsOnReady = [onConversationsAPIReady];
 //
 // formContainer[0].classList.remove("show");
 const urlSearch = window.location.search;
-console.log(urlSearch);
 if (urlSearch.indexOf("?resetPswd=true") !== -1)
 	formContainer[6].classList.add("show");
-
-// 0: div.form-container.sign-up-container
-// 1: div.form-container.sign-up-continue.sign-up-completed
-// 2: div.form-container.email-sent-container
-// 3: div.form-container.parent-consent-container
-// 4: div.form-container.sign-in-container
-// 5: div.form-container.section-reset
-// 6: div.form-container.section-reset.password
