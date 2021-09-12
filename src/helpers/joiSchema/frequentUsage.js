@@ -10,7 +10,7 @@ const emailSch = {
 };
 const emailV = Joi.object(emailSch);
 //
-const pswdJoiStr = Joi.string().min(6).max(16).trim().required().messages({
+const pswdJoiStr = Joi.string().min(8).max(30).trim().required().messages({
 	"string.pattern.base": "Password Validation Error : Invalid Format",
 });
 module.exports = { emailSch, emailV, pswdJoiStr };
