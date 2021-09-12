@@ -29,14 +29,11 @@ const handleRequestToken = async (req, res, next) => {
 		};
 		const authHeader = await prepareAuthorizationHeader(request_data, {});
 		//
-		console.log(authHeader);
-		const data22 = await axios({
+		const { data } = await axios({
 			url: request_data.url,
 			method: request_data.method,
 			headers: authHeader,
 		});
-		storeErr("Hhuh", data22.config, req);
-		const { data } = data22;
 		const respParams = url.parse(`?${data}`, true).query;
 		if (respParams.oauth_callback_confirmed === "true") {
 			if (query.type === "signup")

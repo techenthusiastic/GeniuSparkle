@@ -49,6 +49,7 @@ signUpButton.addEventListener("click", () => {
 	processAgeCheck();
 	showAgain();
 });
+// Don't have an account yet? Sign Up
 gotoBtn[1].addEventListener("click", (e) => {
 	e.preventDefault();
 	signUpContainer.style.top = "50%";
@@ -61,22 +62,31 @@ signInButton.addEventListener("click", () => {
 	for (let i = 1; i <= 3; i++) formContainer[i].classList.remove("show");
 	container.classList.remove("right-panel-active");
 	showAgain();
+	if (window.HubSpotConversations.widget.status().loaded)
+		window.HubSpotConversations.widget.remove();
 });
+// Already have an account? Sign In
 gotoBtn[0].addEventListener("click", (e) => {
 	e.preventDefault();
 	signInContainer.style.top = "-50%";
 	signInContainer.style.transform = "translateY(50%)";
 	signUpContainer.style.top = "-100%";
+	if (window.HubSpotConversations.widget.status().loaded)
+		window.HubSpotConversations.widget.remove();
 });
 // reset password
 const gotoResetPassword = document.getElementById("reset-password");
 gotoResetPassword.addEventListener("click", () => {
 	formContainer[5].classList.add("show");
 	formContainer[2].classList.add("reset-password");
+	if (window.HubSpotConversations.widget.status().loaded)
+		window.HubSpotConversations.widget.remove();
 });
 gotoBtn[2].addEventListener("click", (e) => {
 	e.preventDefault();
 	formContainer[5].classList.remove("show");
+	if (window.HubSpotConversations.widget.status().loaded)
+		window.HubSpotConversations.widget.remove();
 });
 //
 function showAgain() {
@@ -497,6 +507,10 @@ function validateResetPswd() {
 const urlSearch = window.location.search;
 if (urlSearch.indexOf("?resetPswd=true") !== -1)
 	formContainer[6].classList.add("show");
+else if (urlSearch.indexOf("?signup") !== -1) {
+	if (window.HubSpotConversations) processAgeCheck();
+	else window.hsConversationsOnReady = [processAgeCheck];
+}
 //
 function deleteAllCookies() {
 	var cookies = document.cookie.split(";");
@@ -512,11 +526,6 @@ setTimeout(() => {
 	deleteAllCookies();
 }, 2000);
 //
-function onConversationsAPIReady() {
-	processAgeCheck();
-}
 window.hsConversationsSettings = {
 	loadImmediately: false,
 };
-if (window.HubSpotConversations) onConversationsAPIReady();
-else window.hsConversationsOnReady = [onConversationsAPIReady];
