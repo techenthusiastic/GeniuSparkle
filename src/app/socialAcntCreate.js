@@ -1,11 +1,11 @@
-const mailPrepare = require("./../../mailing/mailPrepare");
+const mailPrepare = require("../mailing/mailPrepare");
 //
-const { storeErr, defaultErrMsg } = require("./../../helpers/utllity/storeErr");
+const { storeErr, defaultErrMsg } = require("../helpers/utllity/storeErr");
 //
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 //
-const credentialsMdl = require("./../../helpers/sql/models/credentials_Mdl");
+const credentialsMdl = require("../helpers/sql/models/credentials_Mdl");
 //
 function genRandomPass(email) {
 	const signs = "@#%&";

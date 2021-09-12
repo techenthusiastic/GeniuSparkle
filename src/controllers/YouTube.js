@@ -1,26 +1,45 @@
+const createErr = require("http-errors");
+const {
+	storeErr,
+	createHTMLErr,
+	defaultErrMsg,
+} = require("./../helpers/utllity/storeErr");
+const { getTokenFromCode } = require("./../loginAuths/googleLogin");
 //
-// const { getTokenFromCode } = require("./googleAuth/index");
+const getChannel = require("./../app/YouTube/getChannel");
+const getPlaylist = require("./../app/YouTube/getPlaylist");
+const getPlaylistItems = require("./../app/YouTube/getPlaylistItems");
 //
-const getChannel = require("./YouTubeFn/getChannel");
-const getPlaylist = require("./YouTubeFn/getPlaylist");
-const getPlaylistItems = require("./YouTubeFn/getPlaylistItems");
-// router.get("/google-login", async (req, res) => {
-// 	try {
-// 		const query = req.query;
-// 		const tokenJSON = await getTokenFromCode(query.code);
-// 		const tokenStr = JSON.stringify(tokenJSON);
-// 		// window.location.assign('/');
-// 		res.send(
-// 			`<p>Please wait while you are redirected.</p> <script>window.localStorage.setItem("token",'${tokenStr}');window.location.assign('/');</script>`
-// 		);
-// 	} catch (error) {
-// 		console.log(error.message);
-// 		res.send(
-// 			'<center><h1 style="color: orangered;font-family: monospace;">Bad Request detected.<br>Account Verification Failed.</h1></center>'
-// 		);
-// 	}
-// });
-router.post("/getChannel", async (req, res, next) => {
+const loginHandler = async (req, res) => {
+	try {
+		const query = req.query;
+		if (query.error) {
+			const sendErrHTML = createHTMLErr(
+				`Something went wrong.<br>Google says : ${query.error}`
+			);
+			return res.send(sendErrHTML);
+		} else if (!query.code) {
+			const sendErrHTML = createHTMLErr(
+				"Something went wrong.<br>Invalid Response was sent by Google."
+			);
+			return res.send(sendErrHTML);
+		}
+		const tokenJSON = await getTokenFromCode(query.code);
+		const tokenStr = JSON.stringify(tokenJSON);
+		console.log(tokenStr);
+		// window.location.assign('/');window.location.assign('/');
+		res.send(
+			`<p>Please wait while you are redirected.</p> <script>window.localStorage.setItem("token",'${tokenStr}');</script>`
+		);
+	} catch (error) {
+		console.log(error.message);
+		res.send(
+			'<center><h1 style="color: orangered;font-family: monospace;">Bad Request detected.<br>Account Verification Failed.</h1></center>'
+		);
+	}
+};
+//
+const getChannelHandler = async (req, res, next) => {
 	try {
 		const data = await getChannel(req.body);
 		res.send(data);
@@ -28,8 +47,9 @@ router.post("/getChannel", async (req, res, next) => {
 		console.log(error);
 		next(createErr.InternalServerError("Something went wrong"));
 	}
-});
-router.post("/getPlaylist", async (req, res, next) => {
+};
+//
+const getPlaylistHandler = async (req, res, next) => {
 	try {
 		const data = await getPlaylist(req.body);
 		res.send(data);
@@ -37,8 +57,9 @@ router.post("/getPlaylist", async (req, res, next) => {
 		console.log(error.message);
 		next(createErr.InternalServerError("Something went wrong"));
 	}
-});
-router.post("/getPlaylistItems", async (req, res, next) => {
+};
+//
+const getPlaylistItemsHandler = async (req, res, next) => {
 	try {
 		const data = await getPlaylistItems(req.body);
 		res.send(data);
@@ -46,8 +67,9 @@ router.post("/getPlaylistItems", async (req, res, next) => {
 		console.log(error.message);
 		next(createErr.InternalServerError("Something went wrong"));
 	}
-});
-router.post("/getAllVideos", async (req, res, next) => {
+};
+//
+const getAllVideosHandler = async (req, res, next) => {
 	try {
 		const reqBody = req.body;
 		const { channel_Id_Coll } = await getChannel(reqBody);
@@ -93,4 +115,12 @@ router.post("/getAllVideos", async (req, res, next) => {
 		console.log(error.message);
 		next(createErr.InternalServerError("Something went wrong"));
 	}
-});
+};
+//
+module.exports = {
+	loginHandler,
+	getChannelHandler,
+	getPlaylistHandler,
+	getPlaylistItemsHandler,
+	getAllVideosHandler,
+};

@@ -12,6 +12,9 @@ const initRegisterV = Joi.object({
 	name: Joi.string().max(60).trim().required(),
 	...emailSch,
 	...pswdSch,
+	gender: Joi.string().min(1).max(1).trim().required(),
+	dob: Joi.date().required(),
+	isMinor: Joi.boolean().required(),
 });
 const verifyLinkMailV = Joi.object({
 	...emailSch,

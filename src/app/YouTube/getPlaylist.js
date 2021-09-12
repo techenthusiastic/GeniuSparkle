@@ -1,4 +1,7 @@
-const { youTubeService, setAuthCredentials } = require("./../googleAuth/index");
+const {
+	youTubeService,
+	setAuthCredentials,
+} = require("./../../loginAuths/googleLogin");
 async function getPlaylist(reqBody) {
 	const tokenJSON = JSON.parse(reqBody.token);
 	const oauth2Client = await setAuthCredentials(tokenJSON);

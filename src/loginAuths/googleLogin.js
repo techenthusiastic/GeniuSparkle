@@ -2,7 +2,8 @@ const { google } = require("googleapis");
 const googleConfig = {
 	clientId: process.env.gClientId,
 	clientSecret: process.env.gClientSecret,
-	redirect: "http://localhost/google/login",
+	// redirect: "http://localhost/google/login",
+	redirect: "http://localhost/youtube/login",
 };
 //
 const oAuth2Client = new google.auth.OAuth2(
@@ -44,10 +45,21 @@ google.options({ auth: oAuth2Client });
 // 	});
 // }
 // console.log(getConnectionUrl(oAuth2Client));
+//
+const { storeErr } = require("./../helpers/utllity/storeErr");
+oAuth2Client.on("tokens", (tokens) => {
+	storeErr(tokens, "Google oAuthToken");
+});
+//
+async function getAcsTknFrmRfrsTkn(refresh_token) {
+	oAuth2Client.setCredentials({ refresh_token });
+	const { res } = await oAuth2Client.getAccessToken();
+	return res.data;
+}
+//
 async function getTokenFromCode(code) {
 	// get the auth "tokens" from the request
-	const data = await oAuth2Client.getToken(code);
-	const tokens = data.tokens;
+	const { tokens } = await oAuth2Client.getToken(code);
 	return tokens;
 }
 async function getGoogleAccountFromCode(code) {
@@ -83,6 +95,7 @@ const youTubeService = google.youtube("v3");
 module.exports = {
 	oAuth2Client, // to be used in email sending API - nodemailer
 	getTokenFromCode,
+	getAcsTknFrmRfrsTkn,
 	getGoogleAccountFromCode,
 	setAuthCredentials,
 	youTubeService,

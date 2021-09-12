@@ -33,17 +33,14 @@ app.use(require("./src/routeSetup"));
 app.use(async (req, res, next) => {
 	next(createErr.NotFound());
 });
+const {
+	storeErr,
+	defaultErrMsgTxt,
+} = require("./src/helpers/utllity/storeErr");
 // Error Handeler Middleware
 app.use((err, req, res, next) => {
-	let showErr = err.message;
-	if (showErr === "invalid csrf token")
-		showErr =
-			"Security Token mis-match.<br>Refresh/Reload this Page to create a Secure Channel.";
-	else if (err.name === "MongoError") {
-		showErr =
-			"Something went wrong.<br>You request couldn't be fulfilled at the moment.<br>Please retry after sometime.";
-		// storeErr(req, err);
-	}
+	let showErr =
+		typeof err.message !== "object" ? err.message : defaultErrMsgTxt;
 	res
 		.status(err.status || 500)
 		.send({ error: { status: err.status || 500, message: showErr } });

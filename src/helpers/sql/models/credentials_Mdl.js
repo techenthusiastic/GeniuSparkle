@@ -6,6 +6,8 @@ const {
 	varchar_100_NOT_NULL_DEFAULT_None,
 	varchar_100_NULL_DEFAULT_NULL,
 	varchar_255_NOT_NULL_DEFAULT_None,
+	varchar_1_NULL_DEFAULT_NULL,
+	date_DEFAULT_NULL,
 	BOOLEAN_NULL_DEFAULT_0,
 	JSON_NULL_DEFAULT_NULL,
 } = require("./mdl_obj_fascilator");
@@ -21,6 +23,9 @@ credentialsMdl.init(
 		email: makeUniqueKey({ ...varchar_100_NOT_NULL_DEFAULT_None }),
 		password: { ...varchar_255_NOT_NULL_DEFAULT_None },
 		name: { ...varchar_100_NULL_DEFAULT_NULL },
+		gender: { ...varchar_1_NULL_DEFAULT_NULL },
+		dob: { ...date_DEFAULT_NULL },
+		isMinor: { ...BOOLEAN_NULL_DEFAULT_0 },
 		status: { ...BOOLEAN_NULL_DEFAULT_0 },
 		otherData: { ...JSON_NULL_DEFAULT_NULL },
 	},

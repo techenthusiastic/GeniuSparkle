@@ -1,0 +1,11 @@
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+RewriteEngine on
+
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]

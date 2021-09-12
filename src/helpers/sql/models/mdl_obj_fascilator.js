@@ -73,6 +73,7 @@ const frequent_Usage = {
 	varchar_50_NULL_DEFAULT_NULL: mdlObjFasc(2, true, 50, null),
 	varchar_20_NULL_DEFAULT_NULL: mdlObjFasc(2, true, 20, null),
 	varchar_10_NULL_DEFAULT_NULL: mdlObjFasc(2, true, 10, null),
+	varchar_1_NULL_DEFAULT_NULL: mdlObjFasc(2, true, 1, null),
 	datetime_DEFAULT_NULL: mdlObjFasc(3, true, false, null),
 	date_DEFAULT_NULL: mdlObjFasc(4, true, false, null),
 	tinyint_4_DEFAULT_NULL: mdlObjFasc(1, true, 4, null),

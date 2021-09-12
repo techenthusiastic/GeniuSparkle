@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.display-none {
+	display: none !important;
+}
+.display-unset {
+	display: unset !important;
+}
+.btn-with-spinner {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+.btn-with-spinner img {
+	margin-left: 5px;
+}
+.btn-with-spinner img.hide {
+	display: none;
+}
+.btn-with-spinner img.show {
+	display: unset;
+}

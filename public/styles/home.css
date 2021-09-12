@@ -181,6 +181,13 @@
 .features-details a svg {
   margin-left: 0.5rem;
 }
+.features-details a svg {
+  transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.features-details a:hover svg {
+  margin-left: 0.75rem;
+}
 
 .content {
   display: flex;
@@ -288,6 +295,8 @@
   line-height: 2;
 }
 
+
+
 .multiple-features-card span {
   text-align: left;
   min-height: 5rem;
@@ -311,8 +320,8 @@
 
 .multiple-features-image svg,
 .steps-image svg {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .faq-header,
@@ -510,7 +519,7 @@
 }
 
 .multiple-features-card h4 {
-  margin: 1.5rem 0 0.75rem 0;
+  margin: 1rem 0 0.75rem 0;
   text-align: center;
 }
 
@@ -1032,11 +1041,6 @@
     flex-direction: row-reverse;
   }
 
-  .features.four .features-details p {
-    font-size: 1.8rem;
-    line-height: 1.7;
-  }
-
   .faq ul li span {
     font-size: 1.2rem;
   }
@@ -1066,11 +1070,14 @@
     margin-left: 0;
     margin-right: 2rem;
   }
+  .features.five .features-details,
   .features.four .features-details,
   .features.two .features-details {
     max-width: initial;
   }
 
+  .features.four .features-details p,
+  .features.five .features-details p,
   .features.three .features-details p,
   .features.two .features-details p {
     font-size: 1.05rem;
@@ -1373,6 +1380,7 @@
   }
 
   .features.four .features-details,
+  .features.five .features-details,
   .features.two .features-details {
     margin-left: 4rem;
   }
