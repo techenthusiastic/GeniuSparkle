@@ -1,9 +1,8 @@
-const createErr = require("http-errors");
 //
 const {
 	storeErr,
 	defaultErrMsg,
-	defaultErrMsgTxt,
+	createHTMLErr,
 } = require("./../../helpers/utllity/storeErr");
 //
 const credentialsMdl = require("./../../helpers/sql/models/credentials_Mdl");
@@ -21,6 +20,9 @@ const url = require("url");
 //
 const handleRequestToken = async (req, res, next) => {
 	try {
+		const query = req.query;
+		if (!query.type)
+			return res.status(401).send(createHTMLErr("Invalid Request"));
 		const request_data = {
 			url: "https://api.twitter.com/oauth/request_token",
 			method: "POST",
@@ -34,23 +36,26 @@ const handleRequestToken = async (req, res, next) => {
 		});
 		const respParams = url.parse(`?${data}`, true).query;
 		if (respParams.oauth_callback_confirmed === "true") {
-			// Sign Up
-			res.redirect(
-				303,
-				`https://api.twitter.com/oauth/authorize?oauth_token=${respParams.oauth_token}`
-			);
+			if (query.type === "signup")
+				// Sign Up
+				res.redirect(
+					303,
+					`https://api.twitter.com/oauth/authorize?oauth_token=${respParams.oauth_token}`
+				);
 			// Login
-			// res.redirect(
-			// 	303,
-			// 	`https://api.twitter.com/oauth/authenticate?oauth_token=${respParams.oauth_token}`
-			// );
+			else if (query.type === "login")
+				res.redirect(
+					303,
+					`https://api.twitter.com/oauth/authenticate?oauth_token=${respParams.oauth_token}`
+				);
+			else return res.status(401).send(createHTMLErr("Invalid Request"));
 		} else {
 			storeErr("", `Twitter Login Failed ${respParams}`, req);
-			return next(createErr.InternalServerError(defaultErrMsgTxt));
+			return res.status(401).send(defaultErrMsg);
 		}
 	} catch (error) {
 		storeErr("", error, req);
-		return next(createErr.InternalServerError(defaultErrMsgTxt));
+		return res.status(401).send(defaultErrMsg);
 	}
 };
 // .

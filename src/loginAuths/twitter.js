@@ -31,6 +31,8 @@ const prepareAuthorizationHeader = (request, oAuth_KeySecret) => {
 	});
 };
 //
+const axios = require("axios");
+//
 const getUserData = async (respParams) => {
 	const request_data = {
 		url: `https://api.twitter.com/1.1/account/verify_credentials.json?screen_name=${respParams.screen_name}&include_email=true&include_entities=false&skip_status=true`,

@@ -13,8 +13,8 @@ router.use("/twitter", twitterRouter);
 const emailAuthRoute = require("./routes/login/emailLogin");
 router.use("/emailAuth", emailAuthRoute);
 // YouTube Route Setup
-const YouTubeRoute = require("./routes/YouTube");
-router.use("/youtube", YouTubeRoute);
+// const YouTubeRoute = require("./routes/YouTube");
+// router.use("/youtube", YouTubeRoute);
 // Get Country from IP
 // const getCountryRoute = require("./routes/utilities/ipToCountry");
 // router.use("/getCountry", getCountryRoute);
