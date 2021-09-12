@@ -17,15 +17,6 @@ const {
 const axios = require("axios");
 // To parse query param
 const url = require("url");
-const request_data = {
-	url: "https://api.twitter.com/oauth/request_token",
-	method: "POST",
-	data: {
-		oauth_callback: "https://geniusparkle.herokuapp.com/twitter/authenticate",
-	},
-};
-prepareAuthorizationHeader(request_data, {}).then((resp) => console.log(resp));
-
 //
 const handleRequestToken = async (req, res, next) => {
 	try {
@@ -35,13 +26,12 @@ const handleRequestToken = async (req, res, next) => {
 		const request_data = {
 			url: "https://api.twitter.com/oauth/request_token",
 			method: "POST",
-			param: {
+			data: {
 				oauth_callback:
 					"https://geniusparkle.herokuapp.com/twitter/authenticate",
 			},
 		};
 		const authHeader = await prepareAuthorizationHeader(request_data, {});
-		console.log(authHeader);
 		//
 		const { data } = await axios({
 			url: request_data.url,
