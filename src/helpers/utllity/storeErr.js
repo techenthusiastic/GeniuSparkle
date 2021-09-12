@@ -21,7 +21,8 @@ async function storeErr(userInfo, err, req) {
 		const obj = {};
 		obj.userInfo = JSON.stringify(userInfo);
 		// if err is instance off error - stringify , else direct assign if manual error string
-		if (err && typeof err === "object") obj.error = err.stack.toString();
+		if (err && typeof err === "object")
+			obj.error = err.stack ? err.stack.toString() : JSON.stringify(err);
 		else obj.error = err;
 		error_Mdl.create(obj);
 	} catch (error) {

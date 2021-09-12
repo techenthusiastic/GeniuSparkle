@@ -29,13 +29,15 @@ const handleRequestToken = async (req, res, next) => {
 		};
 		const authHeader = await prepareAuthorizationHeader(request_data, {});
 		//
-		const { data } = await axios({
+		console.log(authHeader);
+		const data22 = await axios({
 			url: request_data.url,
 			method: request_data.method,
 			headers: authHeader,
 		});
+		storeErr("Hhuh", data22.config, req);
+		const { data } = data22;
 		const respParams = url.parse(`?${data}`, true).query;
-		console.log(respParams);
 		if (respParams.oauth_callback_confirmed === "true") {
 			if (query.type === "signup")
 				// Sign Up
@@ -55,7 +57,6 @@ const handleRequestToken = async (req, res, next) => {
 			return res.status(401).send(defaultErrMsg);
 		}
 	} catch (error) {
-		console.log(error);
 		storeErr("", error, req);
 		return res.status(401).send(defaultErrMsg);
 	}
