@@ -39,11 +39,18 @@ const {
 } = require("./src/helpers/utllity/storeErr");
 // Error Handeler Middleware
 app.use((err, req, res, next) => {
-	let showErr =
-		typeof err.message !== "object" ? err.message : defaultErrMsgTxt;
-	res
-		.status(err.status || 500)
-		.send({ error: { status: err.status || 500, message: showErr } });
+  switch (err.message) {
+    case 'NoCodeProvided':
+      return res.status(400).send({
+        status: 'ERROR',
+        error: err.message,
+      });
+    default:
+      return res.status(500).send({
+        status: 'ERROR',
+        error: err.message,
+      });
+  }
 });
 //
 const http = require("http");
