@@ -18,4 +18,9 @@ router.use("/emailAuth", emailAuthRoute);
 // Get Country from IP
 // const getCountryRoute = require("./routes/utilities/ipToCountry");
 // router.use("/getCountry", getCountryRoute);
+
+// discord Route
+const discordRoute = require("./routes/login/discordLogin");
+router.use("/api/discord", discordRoute);
+
 module.exports = router;
